@@ -1,0 +1,17 @@
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.title {
+  display: inline-flex;
+  vertical-align: center;
+  align-items: center;
+
+  mat-icon {
+    padding-right: 2%;
+  }
+
+  h1 {
+    padding-left: 2%;
+  }
+}
