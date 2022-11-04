@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { User } from '../_models/user';
 
 
 @Component({
@@ -10,11 +9,22 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class ToolbarComponent implements OnInit {
 
+  user: User;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   logout(): void {
+  }
+
+  userName(): String {
+    return "Armin Admin";
+  }
+
+  getUser(): void {
+
   }
 }

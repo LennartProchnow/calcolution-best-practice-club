@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 header {
   background-color: white;
-  height: 5%;
+  min-height: 75px;
+  height: 10%;
+  position: sticky;
+  width: 100%;
+  display: flex;
 }
 
 body, html {
@@ -15,9 +19,32 @@ body {
 
 .basic-container {
   background: linear-gradient(342deg, #4E8943 7%, rgba(106, 160, 81, 0.3) 96%);
-  height: 95%;
   width: 97%;
   margin-left: 1.5%;
   margin-right: 1.5%;
 }
+
+.app_toolbar {
+  width: 100%;
+}
+
+.icon{
+  color: orange;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-form-field .mat-form-field {
+  &-underline {
+    position: static;
+  }
+
+  &-subscript-wrapper {
+    position: static;
+  }
+}
+
 
