@@ -4,7 +4,7 @@
     <h1 class="titel_bpc">Best Practice Club</h1>
   </div>
   <span class="fill-space"></span>
-  <div class="right">
+  <div *ngIf="isAuthenticated()" class="right">
     <mat-icon class = "toolbar_icon">assessment</mat-icon>
     <mat-icon class = "toolbar_icon">business</mat-icon>
     <mat-icon matTooltip="Threads" matTooltipPosition="left" class = "toolbar_icon">forum</mat-icon>

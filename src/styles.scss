@@ -18,7 +18,11 @@ body {
 }
 
 .basic-container {
-  background: linear-gradient(342deg, #4E8943 7%, rgba(106, 160, 81, 0.3) 96%);
+  background-image: url(./assets/img/background.webp);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background: linear-gradient(342deg, #4E8943 7%, rgba(106, 160, 81, 0.3) 96%);*/
   width: 97%;
   margin-left: 1.5%;
   margin-right: 1.5%;

@@ -17,4 +17,8 @@ export class User {
     this.organisation = organisation;
   }
 
+  getFullName(): String {
+    return this.forename + this.surname;
+  }
+
 }

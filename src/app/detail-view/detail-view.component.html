@@ -6,30 +6,23 @@
       </button>
     </div>
     <div class="organisation_info">
-      <div class="organisation-form">
-          <span>
-            <mat-label for="name">Unternehmensname: </mat-label>
-          </span>
-          <span>
-            <input matInput id="name" type="text" [(ngModel)]="organisation.name" name="name">
-          </span>
-      </div>
-      <div class="organisation-form">
-        <label for="industry">Branche: </label>
-        <input id="industry" [(ngModel)]="organisation.industry" editable="false">
-      </div>
-      <div class="organisation-form">
-        <label for="employees">Mitarbeiter: </label>
-        <input id="employees" [(ngModel)]="organisation.employees" editable="false">
-      </div>
-      <div class="organisation-form">
-        <label for="contact">Kontakt: </label>
-        <input id="contact" [(ngModel)]="organisation.contact" editable="false">
-      </div>
-      <div class="organisation-form">
-        <label for="email">Email: </label>
-        <input id="email" [(ngModel)]="organisation.email" editable="false">
-      </div>
+        <h2>{{organisation.name}}</h2>
+        <div class="organisation-form">
+          <label for="industry">Branche: </label>
+          <input id="industry" [(ngModel)]="organisation.industry" editable="false">
+        </div>
+        <div class="organisation-form">
+          <label for="employees">Mitarbeiter: </label>
+          <input id="employees" [(ngModel)]="organisation.employees" editable="false">
+        </div>
+        <div class="organisation-form">
+          <label for="contact">Kontakt: </label>
+          <input id="contact" [(ngModel)]="organisation.contact" editable="false">
+        </div>
+        <div class="organisation-form">
+          <label for="email">Email: </label>
+          <input id="email" [(ngModel)]="organisation.email" editable="false">
+        </div>
     </div>
     <div>
       <button mat-icon-button *ngIf="isUsersOrganisation">
