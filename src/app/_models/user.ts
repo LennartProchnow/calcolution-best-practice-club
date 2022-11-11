@@ -6,15 +6,19 @@ export class User {
   surname?: string;
   email?: string;
   password?: string;
-  organisation: Organisation;
+  organisation?: Organisation;
   authdata?: string;
 
-  constructor(email: string, password: string, organisation: Organisation, forename?: string, surname?: string ) {
+  constructor(email: string, password: string, organisation?: Organisation, forename?: string, surname?: string ) {
     this.email = email;
     this.password = password;
     this.forename = forename;
     this.surname = surname;
     this.organisation = organisation;
+  }
+
+  public get fullName(): String {
+    return this.forename + " " + this.surname;
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {AuthenticationService} from '../services/authentication.service';
 import { User } from '../_models/user';
 
 
@@ -9,9 +10,20 @@ import { User } from '../_models/user';
 })
 export class ToolbarComponent implements OnInit {
 
-  user: User;
+  value = "";
 
-  constructor() { }
+  fullUserName: String = "";
+
+  user?: User;
+
+  constructor(
+    private authenticationService: AuthenticationService
+  ) {
+    this.user = this.authenticationService.userValue;
+    if(this.user) {
+      this.fullUserName = this.user.forename + " " + this.user.surname;
+    }
+  }
 
   ngOnInit(): void {
 
@@ -21,10 +33,16 @@ export class ToolbarComponent implements OnInit {
   }
 
   userName(): String {
-    return "Armin Admin";
+    let u: User = this.authenticationService.userValue;
+    if(u) {
+      return u.fullName;
+    } else {
+      return "";
+    }
   }
 
-  getUser(): void {
-
+  isAuthenticated(): boolean {
+    return !!this.authenticationService.userValue;
   }
+
 }

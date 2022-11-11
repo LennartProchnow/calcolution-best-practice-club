@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calcolution-best-practice-club';
+  //TODO: rein theoretisch kann das User Management hier passieren
 }

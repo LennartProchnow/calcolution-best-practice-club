@@ -1,14 +1,32 @@
-<mat-toolbar class = "toolbar">
-  <img src='assets/img/Logo.webp' alt='image' class="logo">
-  <div class="title">
-    <h1 class="titel_bpc">Best Practice Club</h1>
+<div *ngIf = "isAuthenticated()" class="flex">
+  <div class = "logo_container">
+    <img src='assets/img/Logo.webp' alt='image' class="logo">
   </div>
-  <span class="fill-space"></span>
-  <div class="right">
-    <mat-icon class = "toolbar_icon">assessment</mat-icon>
-    <mat-icon class = "toolbar_icon">business</mat-icon>
-    <mat-icon matTooltip="Threads" matTooltipPosition="left" class = "toolbar_icon">forum</mat-icon>
-    <mat-icon matTooltip="userName()" matTooltipPosition="left" class = "toolbar_icon">account_circle</mat-icon>
+  <div class = "toolbar_container">
+    <mat-toolbar class = "toolbar">
+      <div class="title">
+        <mat-form-field class="search-form-field" appearance="fill">
+          <input matInput type="text" [(ngModel)]="value" placeholder="Suchen...">
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <span class="fill-space"></span>
+      <div *ngIf="user" class="right">
+        <mat-icon matTooltipPosition="left" class = "toolbar_icon">account_circle</mat-icon>
+        <mat-label>{{fullUserName}}</mat-label>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <!-- <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+        </mat-menu> -->
+      </div>
+    </mat-toolbar>
   </div>
-</mat-toolbar>
+</div>
 

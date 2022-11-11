@@ -1,6 +1,13 @@
 <header>
   <app-toolbar class = "app_toolbar"></app-toolbar>
 </header>
-<router-outlet></router-outlet>
+<div class = "body-container">
+  <div class = "navigation-container">
+    <app-navigationbar></app-navigationbar>
+  </div>
+  <div class = "content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 <app-health></app-health>
 

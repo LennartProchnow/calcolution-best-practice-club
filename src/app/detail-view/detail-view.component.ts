@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OrganisationService } from '../services/organisation.service';
 import { Organisation } from '../_models/organisation';
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-detail-view',
@@ -11,17 +13,23 @@ export class DetailViewComponent implements OnInit {
 
   @Input() organisation?: Organisation;
 
+  user: User;
+
   isUsersOrganisation: boolean = false;
 
   editable: boolean = false;
 
-  constructor(private organisationService: OrganisationService) { }
+  constructor(
+    private organisationService: OrganisationService,
+    private authenticationService: AuthenticationService) { }
 
-  //ToDo: hier sollte später beim Aufruf immer ein Unternehmen übergeben werden
-  //ToDo: hier sollte später beim Aufruf immer ein User übergeben werden, anhand dessen ermittelt werden kann,
-  //  welche Daten gelesen werden dürfen
   ngOnInit(): void {
-    this.loadOrganisation();
+    this.user = this.authenticationService.userValue;
+    if(this.organisation) {
+      this.loadOrganisation();
+    } else {
+      this.setUserOrganisation();
+    }
     this.setIsUsersOrganisation();
   }
 
@@ -30,7 +38,11 @@ export class DetailViewComponent implements OnInit {
   }
 
   setIsUsersOrganisation(): void {
-    this.isUsersOrganisation = true; // ToDo: hier basierend auf den übergebenen User entscheiden
+    this.isUsersOrganisation =  this.organisation === this.user.organisation;
+  }
+
+  setUserOrganisation(): void {
+    this.organisation = this.user.organisation;
   }
 
 
