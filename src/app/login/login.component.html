@@ -1,0 +1,29 @@
+<div class="basic-container">
+  <div class = "flex-container">
+  <mat-card>
+    <mat-card-title><h2>Anmeldung</h2></mat-card-title>
+    <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>E-Mail-Adresse</mat-label>
+          <input matInput type="email" placeholder="email@example.com" autocomplete="username"
+                 formControlName="username"
+                 id="email"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Passwort</mat-label>
+          <input matInput placeholder="Passwort" autocomplete="current-password" type="password"
+                 formControlName="password" id="password"/>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="right">
+        <button mat-raised-button type="submit" color="primary" [disabled]="loading">
+          Anmelden
+        </button>
+      </mat-card-actions>
+      <div *ngIf="error">Sie konnten nicht angemeldet werden. Prüfen Sie bitte Ihre Zugangsdaten.</div>
+    </form>
+  </mat-card>
+  </div>
+</div>
