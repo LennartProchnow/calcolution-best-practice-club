@@ -10,15 +10,23 @@ import { User } from '../_models/user';
 })
 export class ToolbarComponent implements OnInit {
 
+  value = "";
+
+  fullUserName: String = "";
+
   user?: User;
 
   constructor(
     private authenticationService: AuthenticationService
   ) {
-
+    this.user = this.authenticationService.userValue;
+    if(this.user) {
+      this.fullUserName = this.user.forename + " " + this.user.surname;
+    }
   }
 
   ngOnInit(): void {
+
   }
 
   logout(): void {
@@ -27,7 +35,7 @@ export class ToolbarComponent implements OnInit {
   userName(): String {
     let u: User = this.authenticationService.userValue;
     if(u) {
-      return u.getFullName();
+      return u.fullName;
     } else {
       return "";
     }
@@ -36,4 +44,5 @@ export class ToolbarComponent implements OnInit {
   isAuthenticated(): boolean {
     return !!this.authenticationService.userValue;
   }
+
 }
