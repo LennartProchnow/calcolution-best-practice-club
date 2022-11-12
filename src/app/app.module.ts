@@ -29,7 +29,8 @@ import {MatListModule} from '@angular/material/list';
 
 const OPTIONS = {
   appearance: 'outline',
-  floatLabel: 'always'
+  floatLabel: 'always',
+  primary: 'green',
 }
 
 @NgModule({
