@@ -26,6 +26,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCommonModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 
 const OPTIONS = {
   appearance: 'outline',
@@ -57,6 +58,7 @@ const OPTIONS = {
     MatCardModule,
     MatNativeDateModule,
     MatListModule,
+    MatButtonModule
   ],
   providers: [
     {

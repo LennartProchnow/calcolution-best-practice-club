@@ -5,7 +5,7 @@
   <div class = "toolbar_container">
     <mat-toolbar class = "toolbar">
       <div class="title">
-        <mat-form-field class="search-form-field" appearance="fill">
+        <mat-form-field class="search-form-field" appearance="outline">
           <input matInput type="text" [(ngModel)]="value" placeholder="Suchen...">
           <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
@@ -19,12 +19,6 @@
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>more_vert</mat-icon>
         </button>
-        <!-- <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <mat-icon>dialpad</mat-icon>
-            <span>Redial</span>
-          </button>
-        </mat-menu> -->
       </div>
     </mat-toolbar>
   </div>
