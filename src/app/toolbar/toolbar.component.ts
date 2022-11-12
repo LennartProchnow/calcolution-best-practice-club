@@ -19,15 +19,18 @@ export class ToolbarComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService
   ) {
-    this.user = this.authenticationService.userValue;
-    if(this.user) {
-      this.fullUserName = this.user.forename + " " + this.user.surname;
-    }
+
   }
 
   ngOnInit(): void {
+      this.authenticationService.getUser().subscribe((user: User) => {
+        if (user) {
+          this.user = user;
+          this.fullUserName = this.user.forename + " " + this.user.surname;
+        }
+      });
+    }
 
-  }
 
   logout(): void {
   }
