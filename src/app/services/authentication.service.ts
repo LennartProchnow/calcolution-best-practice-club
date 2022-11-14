@@ -69,7 +69,7 @@ export class AuthenticationService {
        //   return user;
        // }));
 
-        let user = new User("lennart.prochnow@ituv.de", "Geheim123", this.organisationService.getMockOrganisation(), "Lennart", "Prochnow");
+        let user = new User("christian.schehm@calcolution.com", "Geheim123", this.organisationService.getMockOrganisation(), "Christian", "Schwehm");
         this.storageService.clear();
         this.storageService.set(this._storage_key, JSON.stringify(user));
         this.userSubject.next(user);
