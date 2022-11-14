@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     });
     this.returnUrl =
       //this.route.snapshot.queryParams.redirect_uri ||
-      '/detail-view';
+      '/';
   }
 
   /**

@@ -1,0 +1,42 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+$calcolution-green: (
+    50 : #f4f4e3,
+    100 : #e3e3b9,
+    200 : #d1d18a,
+    300 : #bfbf5b,
+    400 : #b1b138,
+    500 : #a3a315,
+    600 : #9b9b12,
+    700 : #91910f,
+    800 : #88880c,
+    900 : #777706,
+    A100 : #ffffa6,
+    A200 : #ffff73,
+    A400 : #ffff40,
+    A700 : #ffff26,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$calcolution-primary: mat-palette($calcolution-green);
+$calcolution-accent:  mat-palette($mat-pink, 500, 900, A100);
+
+$my-app-theme: mat-light-theme($calcolution-primary, $calcolution-accent);
+
+@include angular-material-theme($my-app-theme);
