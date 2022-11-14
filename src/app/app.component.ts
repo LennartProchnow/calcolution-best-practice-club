@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'calcolution-best-practice-club';
+  title = 'Best Practice Club';
+  //TODO: rein theoretisch kann das User Management hier passieren
+
+  constructor() {
+
+  }
+
 }

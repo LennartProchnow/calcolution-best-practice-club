@@ -11,7 +11,6 @@ export class UserService {
   constructor(private organisationService: OrganisationService) { }
 
   getMockUser(): User {
-  email: string, password: string, forename?: string, surname?: string, organisation: Organisation
-    return User("lennart.prochnow@ituv.de", "Lennart", "Prochnow", this.organisationService.getMockOrganisation());
+    return User("christian.schehm@calcolution.com", "Geheim123", this.organisationService.getMockOrganisation() "Christian", "Schwehm");
   }
 }

@@ -1,0 +1,68 @@
+.login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(253,253,249);
+}
+
+.flex-container {
+  display: flex;
+  margin: auto;
+    /*
+    padding-left: 50px;
+    padding-right: 50px;*/
+    width: 1200px;
+    border: 1px;
+    box-shadow: -15px 12px 10px rgb(200,200,197);
+}
+
+.login-container {
+  display: block;
+  margin:auto;
+  width: 50%;
+  height:600px;
+  background-color: rgb(237,237,230);
+  color: rgb(38,40,23);
+  text-align: center;
+  button {
+    /*background-color: green;*/
+  }
+}
+
+.logo{
+  margin-top:10px;
+/*
+  width: 40%;
+  height: 20%; */
+}
+
+.left-container {
+  background-image: url(../../assets/img/Calco_Zoom_Hintergrund.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  height:600px;
+  vertical-align: middle;
+}
+
+.card-container{
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: left;
+
+  input {
+    width: 250px;
+  }
+  Button {
+    width: 250px;
+  }
+}
+
+.impact-container{
+  position: relative;
+  top: 18%;
+  margin-right: 0;
+  margin-left: auto;
+  width:75%;
+}

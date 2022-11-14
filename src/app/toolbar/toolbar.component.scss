@@ -1,3 +1,16 @@
+.flex {
+  display: flex;
+}
+.toolbar_container {
+  background-image: url(../../assets/img/header_background.jpg);
+  background-position: top; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .fill-space {
   flex: 1 1 auto;
 }
@@ -13,29 +26,31 @@
 
   h1 {
     padding-left: 2%;
-    color: linear-gradient(270deg, rgba(78,115,150,1) 15%, rgba(112,113,70,1) 33%, rgba(164,165,18,1) 77%);
+    color: linear-gradient(270deg, rgba(78,115,150,1) 15%, rgba(164,165,18,1) 77%, rgba(112,113,70,1) 33%);
   }
 }
 
+.search-form-field {
+  width: 500px;
+}
+
+.logo_container {
+  height: 100px;
+  width: 220px;
+}
+
 .logo {
-  height: 75px;
+  height: 100px;
 }
 
 .toolbar {
   width: 100%;
-  background:transparent;
+  background: transparent;
 }
 
 .toolbar_icon {
-  color: orange;
   padding-left: 10px;
   width: 40px;
   height: 40px;
   font-size: 40px;
-}
-
-.titel_bpc{
-  background-image: linear-gradient(270deg, rgba(78,115,150,1) 15%, rgba(112,113,70,1) 33%, rgba(164,165,18,1) 77%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

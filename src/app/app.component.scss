@@ -1,1 +1,24 @@
+header_toolbar {
+  background-color: white;
+  /*min-height: 100px;
+  height: 10%;*/
+  position: sticky;
+  width: 100%;
+  display: flex;
+}
 
+.body-container {
+  display: flex;
+}
+
+.navigation-container {
+  height: 90%;
+  /*width: 250px;*/
+}
+
+.content-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: rgb(237,237,230);
+}
