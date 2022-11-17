@@ -27,6 +27,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCommonModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 const OPTIONS = {
   appearance: 'outline',
@@ -58,7 +59,8 @@ const OPTIONS = {
     MatCardModule,
     MatNativeDateModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [
     {
