@@ -12,6 +12,7 @@ import { HealthComponent } from './health/health.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
 
 // Angular-Material
 import {MaterialExampleModule} from '../material.module';
@@ -28,6 +29,7 @@ import {MatCommonModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const OPTIONS = {
   appearance: 'outline',
@@ -42,7 +44,8 @@ const OPTIONS = {
     ToolbarComponent,
     DetailViewComponent,
     LoginComponent,
-    NavigationbarComponent
+    NavigationbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ const OPTIONS = {
     MatNativeDateModule,
     MatListModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule,
   ],
   providers: [
     {
