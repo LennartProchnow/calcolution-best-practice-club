@@ -4,7 +4,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 const OPTIONS = {
   appearance: 'outline',
@@ -65,6 +69,10 @@ const OPTIONS = {
     MatButtonModule,
     MatMenuModule,
     MatProgressBarModule,
+    NgChartsModule,
+    ScrollingModule,
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [
     {

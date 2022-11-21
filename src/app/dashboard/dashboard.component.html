@@ -1,9 +1,197 @@
 <div class="dashboard_content">
+  <div class ="middle_part">
+    <!-- left Part -->
+    <div class="divider_box">
+      <!-- Chart -->
+      <div>
+        <mat-card class="card_box">
+          <mat-card-header>
+            <mat-card-title>Aktive Stakeholder Profile</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <canvas class = "chart"
+                    baseChart
+                    [data]="barChartData"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [type]="'bar'">
+            </canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Fragebogen Übersicht-->
+      <div>
+        <mat-card class ="card_box">
+          <mat-card-header>
+            <mat-card-title>Fragebogen Übersicht</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              <!-- Eigentümer Column -->
+              <ng-container matColumnDef="owner">
+                <th mat-header-cell *matHeaderCellDef> Eigentümer </th>
+                <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Middle Part -->
+    <div class="divider_box">
+      <!-- Clubs -->
+      <div>
+        <mat-card class ="small_card_box">
+          <mat-card-header>
+            <mat-card-title>Clubs</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-selection-list [multiple]="false">
+              <mat-list-option>
+                <div style="display:flex">
+                  <span>Club 6</span>
+                  <span class="fill-space"></span>
+                  <mat-icon color="primary">turned_in</mat-icon>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-option>
+              <mat-list-option>
+                <div style="display:flex">
+                  <span>Club 2</span>
+                  <span class="fill-space"></span>
+                  <mat-icon color="primary">turned_in</mat-icon>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-option>
+              <mat-list-option>
+                <div style="display:flex">
+                  <span>Club 3</span>
+                  <span class="fill-space"></span>
+                  <mat-icon color="primary">turned_in_not</mat-icon>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-option>
+              <mat-list-option>
+                <div style="display:flex">
+                  <span>Club 4</span>
+                  <span class="fill-space"></span>
+                  <mat-icon color="primary">turned_in_not</mat-icon>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-option>
+              <mat-list-option>
+                <div style="display:flex">
+                  <span>Club 5</span>
+                  <span class="fill-space"></span>
+                  <mat-icon color="primary">turned_in_not</mat-icon>
+                </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- My Events -->
+      <div>
+        <mat-card class ="small_card_box">
+          <mat-card-header>
+            <mat-card-title>Meine Veranstaltungen</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div>
+              <button mat-stroked-button>heute</button>
+              <button mat-stroked-button>Nächste Woche</button>
+              <button mat-stroked-button>Nächstes Jahr</button>
+            </div>
+            <div style="display:block">
+              <mat-list>
+                <mat-list-item style="background:yellow">
+                  <mat-icon matListItemIcon color="primary">turned_in_not</mat-icon>
+                  <span matListItemTitle>Sustainable Real Estate</span>
+                  <span matListItemLine>22 Dez 19:00-20:00 Uhr</span>
+                  <span matListItemLine>Remote</span>
+                  <span matListItemMeta>Club 6</span>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!--News Feed-->
+    <div class="divider_box">
+      <mat-card class = "news_feed_box">
+        <mat-card-header>
+          <mat-card-title>News Feed</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-card class="news_item">
+            <mat-card-header>
+              <mat-card-subtitle>Club 6</mat-card-subtitle>
+              <mat-card-title>
+                <mat-icon color="primary">account_circle</mat-icon>
+                Lennart Prochnow - 4 Std.
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Das ist hier aber alles irgendwie schon komisch gestyled! Das geht doch noch besser!</p>
+              <mat-card-actions align="begin">
+                <button mat-button disabled><mat-icon color="primary">chat</mat-icon> 24</button>
+                <button mat-button disabled><mat-icon color="primary">favorite_border</mat-icon> 27</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="news_item">
+            <mat-card-header>
+              <mat-card-subtitle>Club 6</mat-card-subtitle>
+              <mat-card-title>
+                <mat-icon color="primary">account_circle</mat-icon>
+                Lennart Prochnow - 4 Std.
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>cool cool cool - man kann sogar scrollen.</p>
+              <mat-card-actions align="begin">
+                <button mat-button disabled><mat-icon color="primary">chat</mat-icon> 24</button>
+                <button mat-button disabled><mat-icon color="primary">favorite_border</mat-icon> 27</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+   <!-- Einsparung CO2 -->
   <div>
-    <span>Moin moin</span>
+    <mat-card class="co2_progress_box">
+      <mat-card-header>
+        <mat-card-title>Einsparung CO2</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-progress-bar mode="determinate" value="40" class="progressBar"></mat-progress-bar>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <div class="co2_progress">
-    <span>Einsparung CO2</span>
-    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-  </div>
+
 </div>
