@@ -11,7 +11,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {owner: 'Calcolution', name: 'Default Fragebogen', status: 'Offen'},
   {owner: 'Calcolution', name: 'Fragebogen Calcolution', status: 'Geteilt'},
   {owner: 'Calcolution', name: 'Fragebogen Familie Schwehm', status: 'Abgeschlossen'},
-  {owner: 'Calcolution', name: 'Fragebogen Privat', status: 'Offen'},
 ];
 
 @Component({
@@ -22,6 +21,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class DashboardComponent implements OnInit {
     public barChartLegend = true;
     public barChartPlugins = [];
+
+    items: string[]=['placeholder'];
 
     test: string[]=['moinmoin'];
 

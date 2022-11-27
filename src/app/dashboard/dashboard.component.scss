@@ -1,52 +1,45 @@
 .dashboard_content {
-  height: 100%;
+  height: 98%;
   width: 100%;
 }
 
-//.divider_box{
-//  height:100%;
-//  width:33%;
-//  background:green;
-//}
+.grid_part {
+  height: calc(100% - 35px);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 44% 44% 10%;
+  padding: 10px;
+  gap: 10px;
+  width: calc(100% - 20px); //because of padding
+}
 
-.middle_part {
-  display: flex;
-  width: 100%;
+.grid_item {
+  height: 100%;
+}
+
+.grid_item_news_feed {
+  grid-column: 3;
+  grid-row: 1 / span 2;
 }
 
 .card_box {
   background: white;
-  width: 30vw;
-  height: 35vh;
-  margin: 5px;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.small_card_box {
-  background: white;
-  width: 20vw;
-  height: 35vh;
-  margin: 5px;
-  margin-top: 10px;
+  height: 90%;
 }
 
 .news_feed_box {
   background: white;
-  width: 28vw;
-  height: calc(70vh + 40px);
-  //calc(100% - 48px);
-  margin: 5px;
-  margin-top: 10px;
+  height: 95%;
+}
+
+.grid_item_c02_progess {
+  grid-column: 1 / span 3;
+  grid-row: 3;
 }
 
 .co2_progress_box {
   display: block;
   background: white;
-  width: calc(100% - 45px);
-  margin: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .progressBar {
@@ -56,26 +49,57 @@
 
 .chart {
   width: 90%;
-  height: 90%;
+  height: 100%;
   display: block;
   margin: auto;
 }
 
+.card_content {
+  margin: auto;
+  width: 100%;
+  height: 90%;
+}
+
+
 .news_item {
-  background: grey;
+  background: rgb(237,237,230);
   margin-bottom: 5px;
 }
 
 .example-viewport {
-  width: 40vw;
-  height: 25vh;
-}
-
-table {
-  width:100%;
-  height:80%;
+  width: 100%;
+  height: 100%;
 }
 
 .fill-space {
   flex: 1 1 auto;
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  .mat-table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      display: table;
+      border-collapse: collapse;
+      margin: 0px;
+  }
+  .mat-row,
+  .mat-header-row {
+      display: table-row;
+  }
+  .mat-cell,
+  .mat-header-cell {
+      word-wrap: initial;
+      display: table-cell;
+      padding: 0px 5px;
+      line-break: unset;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: middle;
+  }
 }

@@ -2,10 +2,6 @@
   width: 100%;
 }
 
-.icon{
-  color: orange;
-}
-
 .right {
   display: flex;
   text-align: center;
@@ -22,12 +18,6 @@ mat-form-field .mat-form-field {
     position: static;
   }
 }
-
-app-dashboard {
-  width: 100%;
-  height:100%;
-}
-
 
 html, body {
   height: 100%;
