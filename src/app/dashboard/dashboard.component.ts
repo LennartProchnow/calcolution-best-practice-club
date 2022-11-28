@@ -22,6 +22,12 @@ export class DashboardComponent implements OnInit {
     public barChartLegend = true;
     public barChartPlugins = [];
 
+    progressBarValue=40;
+
+    moins = ['moin'];
+
+    progressTooltip: string='';
+
     items: string[]=['placeholder'];
 
     test: string[]=['moinmoin'];
@@ -29,15 +35,7 @@ export class DashboardComponent implements OnInit {
     displayedColumns: string[] = ['owner', 'name', 'status'];
     dataSource = ELEMENT_DATA;
 
-    public barChartData: ChartConfiguration<'bar'>['data'] = {
-      labels: [ 'Familie Schwehm', 'Calcolution GmbH'],
-      datasets: [
-        { data: [ 65, 59 ], label: 'Anzahl Clubs (Mitglied)' },
-        { data: [ 28, 48], label: 'Anzahl Clubs (Eigentümer)' },
-        { data: [ 15, 2], label: 'Anzahl Fragebogen' },
-        { data: [ 10, 13], label: 'Anzahl teilgenommene Events' }
-      ]
-    };
+    public barChartData: ChartConfiguration<'bar'>['data'];
 
     public barChartOptions: ChartConfiguration<'bar'>['options'] = {
       responsive: false,
@@ -46,6 +44,22 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.progressBarValue = this.createRandomNumber(30, 80);
+    this.progressTooltip = this.progressBarValue + '% bereits eingespart!';
+
+    this.barChartData = {
+                              labels: [ 'Familie Schwehm', 'Calcolution GmbH'],
+                              datasets: [
+                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100) ], label: 'Anzahl Clubs (Mitglied)' },
+                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl Clubs (Eigentümer)' },
+                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl Fragebogen' },
+                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl teilgenommene Events' }
+                              ]
+                            };
+  }
+
+  createRandomNumber(min: number, max: number): number {
+      return Math.floor(Math.random() * (max - min) + min);
   }
 
 }
