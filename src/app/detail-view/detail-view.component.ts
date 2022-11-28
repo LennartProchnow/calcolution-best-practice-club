@@ -34,15 +34,15 @@ export class DetailViewComponent implements OnInit {
   }
 
   loadOrganisation(): void {
-    this.organisation = this.organisationService.getMockOrganisation();
+    //this.organisation = this.organisationService.getMockOrganisation();
   }
 
   setIsUsersOrganisation(): void {
-    this.isUsersOrganisation =  this.organisation === this.user.organisation;
+    //this.isUsersOrganisation =  this.organisation === this.user.organisation;
   }
 
   setUserOrganisation(): void {
-    this.organisation = this.user.organisation;
+    //this.organisation = this.user.organisation;
   }
 
 

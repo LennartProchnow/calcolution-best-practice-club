@@ -1,0 +1,212 @@
+<div class="dashboard_content">
+  <div class ="grid_part">
+    <!-- top row -->
+    <!-- Chart -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-header>
+          <mat-card-title>Aktive Stakeholder Profile</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class ="card_content_chart">
+          <canvas class = "chart"
+                  baseChart
+                  [data]="barChartData"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [type]="'bar'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Clubs -->
+    <div class="grid_item">
+      <mat-card class ="card_box">
+        <mat-card-header>
+          <mat-card-title>Clubs</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class = "card_content">
+          <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+            <div *cdkVirtualFor="let item of items" class="example-item">
+              <mat-selection-list [multiple]="false">
+                <mat-list-option>
+                  <div style="display:flex">
+                    <span>Club 6</span>
+                    <span class="fill-space"></span>
+                    <mat-icon color="primary">turned_in</mat-icon>
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-list-option>
+                <mat-list-option>
+                  <div style="display:flex">
+                    <span>Club 2</span>
+                    <span class="fill-space"></span>
+                    <mat-icon color="primary">turned_in</mat-icon>
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-list-option>
+                <mat-list-option>
+                  <div style="display:flex">
+                    <span>Club 3</span>
+                    <span class="fill-space"></span>
+                    <mat-icon color="primary">turned_in_not</mat-icon>
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-list-option>
+                <mat-list-option>
+                  <div style="display:flex">
+                    <span>Club 4</span>
+                    <span class="fill-space"></span>
+                    <mat-icon color="primary">turned_in_not</mat-icon>
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-list-option>
+                <mat-list-option>
+                  <div style="display:flex">
+                    <span>Club 5</span>
+                    <span class="fill-space"></span>
+                    <mat-icon color="primary">turned_in_not</mat-icon>
+                  </div>
+                </mat-list-option>
+              </mat-selection-list>
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!--News Feed-->
+    <div class="grid_item_news_feed">
+      <mat-card class = "news_feed_box">
+        <mat-card-header>
+          <mat-card-title>News Feed</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+              <mat-card class="news_item">
+                <mat-card-header>
+                  <mat-card-subtitle>Club 6</mat-card-subtitle>
+                  <mat-card-title>
+                    <mat-icon color="primary">account_circle</mat-icon>
+                    Christian Schwehm - 4 Std.
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Genau so - Klasse weiter so!</p>
+                  <mat-card-actions align="begin">
+                    <button mat-button disabled><mat-icon color="primary">chat</mat-icon> 53</button>
+                    <button mat-button disabled><mat-icon color="primary">favorite_border</mat-icon> 27</button>
+                  </mat-card-actions>
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="news_item">
+                <mat-card-header>
+                  <mat-card-subtitle>Club 6</mat-card-subtitle>
+                  <mat-card-title>
+                    <mat-icon color="primary">account_circle</mat-icon>
+                    Lennart Prochnow - 4 Std.
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Das ist doch schonmal ein Anfang. Aber jetzt nicht stoppen</p>
+                  <mat-card-actions align="begin">
+                    <button mat-button disabled><mat-icon color="primary">chat</mat-icon> 9</button>
+                    <button mat-button disabled><mat-icon color="primary">favorite_border</mat-icon> 14</button>
+                  </mat-card-actions>
+                </mat-card-content>
+              </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- bottom Row -->
+    <!-- Fragebogen Übersicht-->
+    <div class="grid_item">
+      <mat-card class ="card_box">
+        <mat-card-header>
+          <mat-card-title>Fragebogen Übersicht</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class = "card_content">
+
+          <div class="table-responsive">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Eigentümer Column -->
+                <ng-container matColumnDef="owner">
+                  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+
+                  <th mat-header-cell *matHeaderCellDef> Eigentümer </th>
+                  <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+
+                  </cdk-virtual-scroll-viewport>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- My Events -->
+    <div class="grid_item">
+      <mat-card class ="card_box">
+        <mat-card-header>
+          <mat-card-title>Meine Veranstaltungen</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class = "card_content">
+          <div>
+            <button mat-stroked-button>heute</button>
+            <button mat-stroked-button>Nächste Woche</button>
+            <button mat-stroked-button>Nächstes Jahr</button>
+          </div>
+          <div>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon color="primary">turned_in_not</mat-icon>
+                <div matLine>Sustainable Real Estate</div>
+                <div matLine>22 Dez 19:00-20:00 Uhr</div>
+                <div matLine>Remote</div>
+                <mat-divider></mat-divider>
+                <!-- <span matListItemLine>Remote</span> -->
+                <!-- <span matListItemMeta>Club 6</span> -->
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon color="primary">turned_in_not</mat-icon>
+                <div matLine>Best Practice Mesaures</div>
+                <div matLine>22 Jan 14:00-16:00 Uhr</div>
+                <div matLine>Hamburg</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Einsparung CO2 -->
+    <div class="grid_item_c02_progess">
+      <mat-card class="co2_progress_box">
+        <mat-card-header>
+          <mat-card-title>Einsparung CO2</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-progress-bar matTooltip="{{progressTooltip}}" mode="determinate" value="{{progressBarValue}}" class="progressBar"></mat-progress-bar>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+
+</div>

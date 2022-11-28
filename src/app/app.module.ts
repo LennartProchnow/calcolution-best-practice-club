@@ -4,7 +4,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HealthComponent } from './health/health.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
 
 // Angular-Material
 import {MaterialExampleModule} from '../material.module';
@@ -27,6 +29,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCommonModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 const OPTIONS = {
   appearance: 'outline',
@@ -41,7 +48,8 @@ const OPTIONS = {
     ToolbarComponent,
     DetailViewComponent,
     LoginComponent,
-    NavigationbarComponent
+    NavigationbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,13 @@ const OPTIONS = {
     MatCardModule,
     MatNativeDateModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    NgChartsModule,
+    ScrollingModule,
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [
     {

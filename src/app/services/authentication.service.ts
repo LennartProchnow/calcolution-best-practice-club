@@ -13,7 +13,7 @@ import {StorageService} from './storage.service';
 })
 export class AuthenticationService {
 
-  private readonly _storage_key = 'user';
+  private readonly _user_storage_key = 'user';
   private userSubject: BehaviorSubject<any>;
   private readonly user: Observable<User>;
 
@@ -27,7 +27,7 @@ export class AuthenticationService {
       private storageService: StorageService,
       private organisationService: OrganisationService
   ) {
-      this.userSubject = new BehaviorSubject<User>(JSON.parse(storageService.get(this._storage_key) as string));
+      this.userSubject = new BehaviorSubject<User>(JSON.parse(storageService.get(this._user_storage_key) as string));
       this.user = this.userSubject.asObservable();
     }
 
@@ -71,7 +71,8 @@ export class AuthenticationService {
 
         let user = new User("christian.schehm@calcolution.com", "Geheim123", this.organisationService.getMockOrganisation(), "Christian", "Schwehm");
         this.storageService.clear();
-        this.storageService.set(this._storage_key, JSON.stringify(user));
+        this.storageService.set(this._user_storage_key, JSON.stringify(user));
+        this.organisationService.setSelectedOrganisation(user.organisation[0]);
         this.userSubject.next(user);
         return of(user);
     }

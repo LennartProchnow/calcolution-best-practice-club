@@ -1,0 +1,111 @@
+.dashboard_content {
+  height: 98%;
+  width: 100%;
+}
+
+.grid_part {
+  height: calc(100% - 35px);
+  display: grid;
+  grid-template-columns: 40% auto auto;
+  grid-template-rows: 44% 44% 10%;
+  padding: 10px;
+  gap: 10px;
+  width: calc(100% - 20px); //because of padding
+}
+
+.grid_item {
+  height: 100%;
+}
+
+.grid_item_news_feed {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.card_box {
+  background: white;
+  height: 90%;
+}
+
+.news_feed_box {
+  background: white;
+  height: 95%;
+}
+
+.grid_item_c02_progess {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+
+.co2_progress_box {
+  display: block;
+  background: white;
+}
+
+.progressBar {
+  width: 100%;
+  height: 10px;
+}
+
+.chart {
+  min-width: 75%;
+  max-width: 90%;
+  height: 90%;
+  display: block;
+  margin: auto;
+}
+
+.card_content {
+  margin: auto;
+  width: 100%;
+  height: 90%;
+}
+
+.card_content_chart {
+  width: 94%;
+  height: 85%;
+}
+
+
+.news_item {
+  background: rgb(237,237,230);
+  margin-bottom: 5px;
+}
+
+.example-viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  .mat-table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      display: table;
+      border-collapse: collapse;
+      margin: 0px;
+  }
+  .mat-row,
+  .mat-header-row {
+      display: table-row;
+  }
+  .mat-cell,
+  .mat-header-cell {
+      word-wrap: initial;
+      display: table-cell;
+      padding: 0px 5px;
+      line-break: unset;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: middle;
+  }
+}
