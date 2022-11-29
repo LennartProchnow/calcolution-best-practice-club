@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
@@ -145,5 +145,8 @@
         }
       }
     }},
-  "defaultProject": "calcolution-best-practice-club"
+  "defaultProject": "calcolution-best-practice-club",
+  "cli": {
+    "analytics": "398dbabf-908a-4e51-8f17-6184dd0098e7"
+  }
 }
