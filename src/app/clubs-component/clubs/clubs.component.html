@@ -42,14 +42,11 @@
     <!-- sub sections -->
 
     <div class="grid_item_content">
-      <app-club-member></app-club-member>
-      <!--
-      <div *ngIf="startIsVisible" >Startseite</div>
-      <div *ngIf="clubSelfEstimationIsVisible">Clubeinschätzung</div>
-      <div *ngIf="measuresIsVisible">Maßnahmen</div>
+      <div *ngIf="startIsVisible" class="clubs_sub_content">Startseite</div>
+      <div *ngIf="clubSelfEstimationIsVisible" class="clubs_sub_content"><app-club-assessment></app-club-assessment></div>
+      <div *ngIf="measuresIsVisible" class="clubs_sub_content">Maßnahmen</div>
       <div *ngIf="memberIsVisible" class="clubs_sub_content"><app-club-member></app-club-member></div>
-      <div *ngIf="questionnaireIsVisible">Fragebogen</div>
-      -->
+      <div *ngIf="questionnaireIsVisible" class="clubs_sub_content">Fragebogen</div>
     </div>
   </div>
 </div>

@@ -26,6 +26,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { NavigationbarComponent } from './navigationbar/navigationbar.component'
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { ClubsComponent } from './clubs-component/clubs/clubs.component';
 import { ClubMemberComponent } from './clubs-component/club-member/club-member.component';
+import { ClubAssessmentComponent } from './clubs-component/club-assessment/club-assessment.component';
 
 
 const OPTIONS = {
@@ -54,7 +56,8 @@ const OPTIONS = {
     NavigationbarComponent,
     DashboardComponent,
     ClubsComponent,
-    ClubMemberComponent
+    ClubMemberComponent,
+    ClubAssessmentComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ const OPTIONS = {
     ScrollingModule,
     MatTableModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   providers: [
     {
