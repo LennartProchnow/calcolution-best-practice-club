@@ -1,0 +1,68 @@
+<div class="club-member-content">
+  <div class="grid-content">
+    <div class="grid_item_member_chart">
+      <mat-card class="card_box_member_chart">
+        <mat-card-title>
+          Mitgliederverteilung pro Branche
+        </mat-card-title>
+        <mat-card-content class="card_content_member_chart">
+          <canvas baseChart
+                  class="chart"
+                  [type]="'pie'"
+                  [datasets]="pieChartDatasets"
+                  [labels]="pieChartLabels"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Moderator -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Moderator/en ({{moderators.length}})
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <mat-list>
+            <mat-list-item *ngFor="let moderator of moderators">
+              <mat-icon color="primary" matListIcon>account_circle</mat-icon>
+              <div matLine>{{moderator.fullName}}</div>
+              <div matLine>Calcolution</div>
+              <mat-icon color="primary" matTooltip="mailto:{{moderator.email}}">mail</mat-icon>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Participants -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Mitglieder ({{participants.length}})
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Suche Mitglied" [(ngModel)]="value">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="participants_list">
+            <mat-list>
+              <mat-list-item *ngFor="let participant of participants">
+                <mat-icon color="primary" matListIcon>account_circle</mat-icon>
+                <div matLine>{{participant.fullName}}</div>
+                <div matLine>Nordakademie</div>
+                <mat-icon color="primary" matTooltip="mailto:{{participant.email}}">mail</mat-icon>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

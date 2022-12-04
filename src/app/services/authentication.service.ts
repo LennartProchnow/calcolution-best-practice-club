@@ -7,6 +7,7 @@ import { of } from "rxjs";
 import {User} from '../_models/user';
 import { OrganisationService } from '../services/organisation.service';
 import {StorageService} from './storage.service';
+import {Club} from '../_models/club';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,11 @@ export class AuthenticationService {
        // }));
 
         let user = new User("christian.schehm@calcolution.com", "Geheim123", this.organisationService.getMockOrganisation(), "Christian", "Schwehm");
+        //hier mag er die zirkuläre Abhängigkeit nicht
+        let clubA = new Club(0, 'Calcolution Club', [], 0);
+        let clubB = new Club(1, 'Real Estate Sustanability', [], 0);
+        user.addClub(clubA);
+        user.addClub(clubB);
         this.storageService.clear();
         this.storageService.set(this._user_storage_key, JSON.stringify(user));
         this.organisationService.setSelectedOrganisation(user.organisation[0]);

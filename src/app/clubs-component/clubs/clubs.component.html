@@ -1,0 +1,55 @@
+<div class="clubs-content">
+  <div class="grid-part">
+    <!-- clubs-Navigation -->
+    <div class="gird_item_clubs_navigation">
+      <mat-card class="card_box">
+        <mat-card-content class="navigation_card_content">
+          <div *ngFor="let club of userClubs">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span>{{club.name}}</span>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <button mat-button (click)="changeContent('start', club)">Startseite</button>
+                <button mat-button (click)="changeContent('clubSelfEstimation', club)">Selbsteinschätzung</button>
+                <button mat-button (click)="changeContent('member', club)">Mitglieder</button>
+                <button mat-button (click)="changeContent('measures', club)">Maßnahmen</button>
+                <!-- ToDo: hier fehlt noch eine Überprüfung, ob User = Moderator-->
+                <button mat-button (click)="changeContent('questionnaire', club)">Fragebogen</button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div class="navigation-bottom">
+            <mat-divider></mat-divider>
+            <button mat-button>
+              <span>Clubs hinzufügen +</span>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="grid_item_club_name">
+      <mat-card class="card_box_club_name">
+        <mat-card-title>
+          {{selectedClub.name}}
+        </mat-card-title>
+      </mat-card>
+    </div>
+
+    <!-- sub sections -->
+
+    <div class="grid_item_content">
+      <app-club-member></app-club-member>
+      <!--
+      <div *ngIf="startIsVisible" >Startseite</div>
+      <div *ngIf="clubSelfEstimationIsVisible">Clubeinschätzung</div>
+      <div *ngIf="measuresIsVisible">Maßnahmen</div>
+      <div *ngIf="memberIsVisible" class="clubs_sub_content"><app-club-member></app-club-member></div>
+      <div *ngIf="questionnaireIsVisible">Fragebogen</div>
+      -->
+    </div>
+  </div>
+</div>

@@ -7,14 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { NgChartsModule } from 'ng2-charts';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HealthComponent } from './health/health.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { DetailViewComponent } from './detail-view/detail-view.component';
-import { NavigationbarComponent } from './navigationbar/navigationbar.component';
-import { DashboardComponent} from './dashboard/dashboard.component';
-
 // Angular-Material
 import {MaterialExampleModule} from '../material.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -33,6 +25,17 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HealthComponent } from './health/health.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
+import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
+import { ClubsComponent } from './clubs-component/clubs/clubs.component';
+import { ClubMemberComponent } from './clubs-component/club-member/club-member.component';
 
 
 const OPTIONS = {
@@ -49,7 +52,9 @@ const OPTIONS = {
     DetailViewComponent,
     LoginComponent,
     NavigationbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ClubsComponent,
+    ClubMemberComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,8 @@ const OPTIONS = {
     NgChartsModule,
     ScrollingModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule
   ],
   providers: [
     {
