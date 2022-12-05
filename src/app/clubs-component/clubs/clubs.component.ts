@@ -31,7 +31,9 @@ export class ClubsComponent implements OnInit {
      this.authenticationService.getUser().subscribe((user: User) => {
        if (user) {
          this.user = user;
-         this.userClubs = user.clubs;
+         this.clubService.readClubsOfUser(user).subscribe((clubs: Club[]) => {
+            this.userClubs = clubs;
+         });
          //initial selected Club
          if(this.userClubs) {
           this.selectedClub = this.userClubs[0];

@@ -39,15 +39,6 @@ export class OrganisationService {
     return this.organisation;
   }
 
-
-  getMockOrganisation(): Organisation[] {
-    let result: Organisation [] = [
-      new Organisation(1, "Calcolution GmbH", "Consulting", 2 ,"Christian Schwehm","christian.schehm@calcolution.com"),
-      new Organisation(2, "Familie Schwehm", "Privat", 5 ,"Christian Schwehm","christian.schehm@calcolution.com")
-   ];
-    return result;
-  }
-
   setSelectedOrganisation(organisation: Organisation): void {
     this.storageService.set(this._organisation_key, JSON.stringify(organisation));
     this.organisationSubject.next(organisation);

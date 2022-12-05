@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {User} from '../../_models/user';
+import {Club} from '../../_models/club';
 
 @Component({
   selector: 'app-club-assessment',
@@ -8,6 +9,8 @@ import {User} from '../../_models/user';
 })
 export class ClubAssessmentComponent implements OnInit {
 
+  @Input()
+  club?:Club;
   participants: User[];
 
   footprint: string[] = ['Mobilität', 'Energie', 'Gebäude & Infrastruktur', 'Dienstleistungen', 'Konsum', 'Nahrungsmittel', 'Umwelteinflüsse'];
@@ -17,15 +20,9 @@ export class ClubAssessmentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.createParticipants();
-  }
-
-  createParticipants(): void {
-      this.participants = [
-        new User('max.mustermann@nordakademie.de', 'Geheim123', [], 'Max', 'Mustermann'),
-        new User('dennis.clausen@nordakademie.de', 'Geheim123', [], 'Dennis', 'Clausen'),
-        new User('martin.schmidt@nordakademie.de', 'Geheim123', [], 'Martin', 'Schmidt')
-      ];
+    if(this.club) {
+      this.participants = this.club.participants;
     }
+  }
 
 }

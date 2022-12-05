@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import {User} from '../../_models/user';
 import {Organisation} from '../../_models/organisation';
+import {Club} from '../../_models/club';
 
 @Component({
   selector: 'app-club-member',
@@ -10,6 +11,8 @@ import {Organisation} from '../../_models/organisation';
 })
 export class ClubMemberComponent implements OnInit {
 
+  @Input()
+  club?:Club;
   value: string = '';
   moderators: User[];
   participants: User[];
@@ -27,22 +30,10 @@ export class ClubMemberComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.createUsers();
-    this.createModerators();
-  }
-
-  createUsers(): void {
-    this.participants = [
-      new User('max.mustermann@nordakademie.de', 'Geheim123', [], 'Max', 'Mustermann'),
-      new User('dennis.clausen@nordakademie.de', 'Geheim123', [], 'Dennis', 'Clausen'),
-      new User('martin.schmidt@nordakademie.de', 'Geheim123', [], 'Martin', 'Schmidt')
-    ];
-  }
-
-  createModerators(): void {
-  this.moderators = [
-        new User('christian.schwehm@calcolution.de', 'Geheim123', [], 'Christian', 'Schwehm')
-      ];
+    if(this.club) {
+      this.participants = this.club.participants;
+      this.moderators = [this.club.moderator];
+    }
   }
 
 }

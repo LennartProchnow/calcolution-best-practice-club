@@ -32,7 +32,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HealthComponent } from './health/health.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { DetailViewComponent } from './detail-view/detail-view.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { ClubsComponent } from './clubs-component/clubs/clubs.component';
@@ -51,7 +50,6 @@ const OPTIONS = {
     AppComponent,
     HealthComponent,
     ToolbarComponent,
-    DetailViewComponent,
     LoginComponent,
     NavigationbarComponent,
     DashboardComponent,

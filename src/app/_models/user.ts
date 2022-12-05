@@ -8,9 +8,9 @@ export class User {
   email?: string;
   password?: string;
   organisation?: Organisation[] = [];
-  clubs?: Club[] = [];
+  clubs?: number[] = [];
 
-  constructor(email: string, password: string, organisation?: Organisation[], forename?: string, surname?: string, clubs?: Club[] ) {
+  constructor(id: number, email: string, password: string, organisation?: Organisation[], forename?: string, surname?: string, clubs?: number[] ) {
     this.email = email;
     this.password = password;
     this.forename = forename;
@@ -26,9 +26,9 @@ export class User {
   addClub(club: Club): void {
     if (this.clubs) {
       console.log(this.clubs);
-      this.clubs.push(club);
+      this.clubs.push(club.id);
     } else {
-      this.clubs = [club];
+      this.clubs = [club.id];
     }
   }
 
