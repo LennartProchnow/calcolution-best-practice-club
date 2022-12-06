@@ -1,0 +1,63 @@
+.clubs-content {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-part {
+  height: calc(100% - 20px);
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-template-rows: 10% 90%;
+  padding: 10px;
+  gap: 10px;
+  width: calc(100% - 20px);
+}
+
+.navigation_card_content {
+  height:90%;
+}
+
+.gird_item_clubs_navigation {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  button {
+      width: 100%;
+      text-align: left;
+   }
+}
+
+.grid_item_club_name {
+  grid-column:2;
+  grid-row: 1;
+}
+
+.club-name-content {
+  vertical-align: middle;
+  height: 100%;
+  border-radius: 5px;
+  background: white;
+}
+
+.grid_item_content {
+
+}
+
+.card_box {
+  background: white;
+  height: 95%;
+}
+
+.navigation-bottom {
+  position: absolute;
+  bottom: 0px;
+  left:0px;
+  right:0px;
+}
+
+.clubs_sub_content {
+  height:100%;
+}
+
+.card_box_club_name {
+  height:50%;
+}

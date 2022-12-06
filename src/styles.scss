@@ -9,6 +9,10 @@
   justify-content: flex-end;
 }
 
+.fill-space {
+  flex: 1 1 auto;
+}
+
 mat-form-field .mat-form-field {
   &-underline {
     position: static;
