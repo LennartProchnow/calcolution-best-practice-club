@@ -1,0 +1,87 @@
+<div class="assessment_content">
+  <div class="grid_content">
+
+    <!-- Selbsteinschätzung des Clubs -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Selbsteinschätzung des Clubs
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <img src='assets/img/club_assessment_image.png' alt='image'>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Filter -->
+    <div class="grid_item">
+      <mat-card class="filter_card_box">
+        <mat-card-title>
+          Filter
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span>Mitglieder</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let participant of participants">
+                  <div matLine>{{participant.fullName}}</div>
+                  <div matLine>{{participant.organisation[0]}}</div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span>Fußabdruck</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let f of footprint">
+                  <div matLine>{{f}}</div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span>Geldabdruck</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let mo of money">
+                  <div matLine>{{mo}}</div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span>Handabdruck</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-selection-list>
+                <mat-list-option *ngFor="let h of handprint">
+                  <div matLine>{{h}}</div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
