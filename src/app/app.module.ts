@@ -37,6 +37,7 @@ import { DashboardComponent} from './dashboard/dashboard.component';
 import { ClubsComponent } from './clubs-component/clubs/clubs.component';
 import { ClubMemberComponent } from './clubs-component/club-member/club-member.component';
 import { ClubAssessmentComponent } from './clubs-component/club-assessment/club-assessment.component';
+import { ClubMeasureComponent } from './clubs-component/club-measure/club-measure.component';
 
 
 const OPTIONS = {
@@ -55,7 +56,8 @@ const OPTIONS = {
     DashboardComponent,
     ClubsComponent,
     ClubMemberComponent,
-    ClubAssessmentComponent
+    ClubAssessmentComponent,
+    ClubMeasureComponent
   ],
   imports: [
     BrowserModule,
