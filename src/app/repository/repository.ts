@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../_models/user';
 import { Organisation } from '../_models/organisation';
 import { Club } from '../_models/club';
+import { ClubQuestion } from '../_models/clubQuestion';
 
 const ORGANISATIONS = {
   0: new Organisation(0, "Calcolution GmbH", "Consulting"),
@@ -22,17 +23,32 @@ const USERS = {
                                           [ORGANISATIONS[4]], 'Martin', 'Schmidt', [0])
 };
 
+const CLUBQUESTIONS = {
+  0: new ClubQuestion(1, 'Welches Geschlecht haben Sie?', true, 'Stakeholderangaben'),
+  1: new ClubQuestion(2, 'Wie alt sind Sie?', true, 'Stakeholderangaben'),
+  2: new ClubQuestion(3, 'Wie gut ist Ihr persönlicher Kenntnisstand in der CO-2 Bilanzierung?', false, 'Stakeholderangaben')
+};
+
 const CLUBS = {
   0: new Club(0, 'Calcolution Club', [
                 USERS["christian.schehm@calcolution.com"],
                 USERS["max.mustermann@nordakademie.de"],
                 USERS['dennis.clausen@nordakademie.de'],
                 USERS['martin.schmidt@nordakademie.de']
-            ], USERS["christian.schehm@calcolution.com"]),
+            ], USERS["christian.schehm@calcolution.com"],
+            'Dies ist ein durch Calcolution öffentlich zugänglicher Best Practice Club, welcher zur Stärkung der Transparenz und als Referenzwert für weitere Clubs dienen soll. Das Ziel soll es sein, eine Plattform für Diskussionen der Stakeholder untereinander zu schaffen.',
+            [
+              CLUBQUESTIONS[0],
+              CLUBQUESTIONS[1],
+              CLUBQUESTIONS[2]
+            ]
+            ),
   1: new Club(1, 'Real Estate Sustanability', [
                 USERS["christian.schehm@calcolution.com"],
                 USERS['max.mustermann@nordakademie.de']
-            ], USERS['max.mustermann@nordakademie.de'])
+            ], USERS['max.mustermann@nordakademie.de'],
+            'Dies ist ein Club zur Kommunikation zwischen Stakeholder für den Austausch zu Maßnahmen in der Real Estate Branche.'
+            )
 };
 
 @Injectable({
@@ -74,5 +90,9 @@ export class ClubRepository {
     });
 
     return clubs;
+  }
+
+  getClubs(): Club[] {
+    return [CLUBS[0], CLUBS[1]];
   }
 }

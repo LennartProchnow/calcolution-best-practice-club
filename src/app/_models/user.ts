@@ -19,7 +19,7 @@ export class User {
     this.clubs = clubs;
   }
 
-  public get fullName(): String {
+  public get fullName(): string {
     return this.forename + " " + this.surname;
   }
 

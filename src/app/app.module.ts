@@ -38,6 +38,8 @@ import { ClubsComponent } from './clubs-component/clubs/clubs.component';
 import { ClubMemberComponent } from './clubs-component/club-member/club-member.component';
 import { ClubAssessmentComponent } from './clubs-component/club-assessment/club-assessment.component';
 import { ClubMeasureComponent } from './clubs-component/club-measure/club-measure.component';
+import { ClubStartPageComponent } from './clubs-component/club-start-page/club-start-page.component';
+import { ClubQuestionnaireComponent } from './clubs-component/club-questionnaire/club-questionnaire.component';
 
 
 const OPTIONS = {
@@ -57,7 +59,9 @@ const OPTIONS = {
     ClubsComponent,
     ClubMemberComponent,
     ClubAssessmentComponent,
-    ClubMeasureComponent
+    ClubMeasureComponent,
+    ClubStartPageComponent,
+    ClubQuestionnaireComponent
   ],
   imports: [
     BrowserModule,

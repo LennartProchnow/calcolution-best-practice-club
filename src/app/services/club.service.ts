@@ -25,12 +25,12 @@ export class ClubService {
 
   readClubs(): Observable<Club[]> {
       //ToDo: here has to be a http Call
-      let clubA: Club = new Club(0, 'Calcolution Club', []);
-      return of([clubA]);
+      return of(this.repository.getClubs());
   }
 
   readClubsOfUser(user: User): Observable<Club[]> {
     //ToDo: here has to be a http Call
     return of(this.repository.findClubsOfUser(user));
   }
+
 }
