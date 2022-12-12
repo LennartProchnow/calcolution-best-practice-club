@@ -26,4 +26,8 @@ export class Club {
     }
   }
 
+  setQuestions(questions: ClubQuestion[]): void {
+    this.questions = questions;
+  }
+
 }

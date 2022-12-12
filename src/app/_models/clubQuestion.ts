@@ -7,4 +7,8 @@ export class ClubQuestion extends Question {
     super(number, question, category);
     this.optional = optional;
   }
+
+  checkOptional(): void {
+    this.optional = !this.optional;
+  }
 }

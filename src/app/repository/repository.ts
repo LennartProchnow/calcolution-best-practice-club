@@ -26,7 +26,14 @@ const USERS = {
 const CLUBQUESTIONS = {
   0: new ClubQuestion(1, 'Welches Geschlecht haben Sie?', true, 'Stakeholderangaben'),
   1: new ClubQuestion(2, 'Wie alt sind Sie?', true, 'Stakeholderangaben'),
-  2: new ClubQuestion(3, 'Wie gut ist Ihr persönlicher Kenntnisstand in der CO-2 Bilanzierung?', false, 'Stakeholderangaben')
+  2: new ClubQuestion(3, 'Wie gut ist Ihr persönlicher Kenntnisstand in der CO-2 Bilanzierung?', false, 'Stakeholderangaben'),
+  3: new ClubQuestion(4, 'Wie lautet der Name des betrachteten Stakeholders?', false, 'Stakeholderangaben'),
+  4: new ClubQuestion(5, 'Welcher Gruppe ist der Stakeholder zuzuordnen?', false, 'Stakeholderangaben'),
+  5: new ClubQuestion(6, 'In welcher Branche ist der Stakeholder vorwiegend aktiv?', false, 'Stakeholderangaben'),
+  6: new ClubQuestion(7, 'Welche Rolle haben Sie innerhalb des Stakeholders?', false, 'Stakeholderangaben'),
+  7: new ClubQuestion(8, 'Welche Emissionsbereiche des Fußabruckes soll detailliert betrachtet werden?', false, 'Stakeholderangaben'),
+  8: new ClubQuestion(9, 'Welche Emissionsbereiche des Geldabdrucks soll detailliert betrachtet werden?', false, 'Stakeholderangaben'),
+  9: new ClubQuestion(10, 'Welche Emissionsbereiche des Handabdrucks soll detailliert betrachtet werden?', false, 'Stakeholderangaben')
 };
 
 const CLUBS = {
@@ -95,4 +102,15 @@ export class ClubRepository {
   getClubs(): Club[] {
     return [CLUBS[0], CLUBS[1]];
   }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class QuestionRepository {
+
+  getAllQuestions(): ClubQuestion[] {
+    return Object.values(CLUBQUESTIONS);
+  }
+
 }
