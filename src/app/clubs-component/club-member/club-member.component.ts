@@ -20,9 +20,9 @@ export class ClubMemberComponent implements OnInit {
   public pieChartOptions: ChartOptions<'pie'> = {
       responsive: false,
     };
-    public pieChartLabels = [ [ 'Chemie' ], [ 'Real Estate' ], 'Privat' ];
+    public pieChartLabels = [ 'Chemie', 'Real Estate' , 'Luftfahrt', 'Finanzdienstleister', 'Privat' ];
     public pieChartDatasets = [ {
-      data: [ 300, 500, 100 ]
+      data: [ 300, 500, 100, 240, 333 ]
     } ];
     public pieChartLegend = true;
     public pieChartPlugins = [];

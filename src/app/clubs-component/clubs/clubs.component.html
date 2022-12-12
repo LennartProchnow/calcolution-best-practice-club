@@ -17,7 +17,7 @@
                 <button mat-button (click)="changeContent('member', club)">Mitglieder</button>
                 <button mat-button (click)="changeContent('measures', club)">Maßnahmen</button>
                 <!-- ToDo: hier fehlt noch eine Überprüfung, ob User = Moderator-->
-                <button mat-button (click)="changeContent('questionnaire', club)">Fragebogen</button>
+                <button *ngIf="checkAuthorization(club)" mat-button (click)="changeContent('questionnaire', club)">Fragebogen</button>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
@@ -34,7 +34,7 @@
     <div class="grid_item_club_name">
       <mat-card class="card_box_club_name">
         <mat-card-title>
-          {{selectedClub.name}}
+          {{selectedClub.name}} - {{contentName}}
         </mat-card-title>
       </mat-card>
     </div>
@@ -42,11 +42,11 @@
     <!-- sub sections -->
 
     <div class="grid_item_content">
-      <div *ngIf="startIsVisible" class="clubs_sub_content">Startseite</div>
+      <div *ngIf="startIsVisible" class="clubs_sub_content"><app-club-start-page [club]="selectedClub"></app-club-start-page></div>
       <div *ngIf="clubSelfEstimationIsVisible" class="clubs_sub_content"><app-club-assessment [club]="selectedClub"></app-club-assessment></div>
-      <div *ngIf="measuresIsVisible" class="clubs_sub_content">Maßnahmen</div>
+      <div *ngIf="measuresIsVisible" class="clubs_sub_content"><app-club-measure [club]="selectedClub"></app-club-measure></div>
       <div *ngIf="memberIsVisible" class="clubs_sub_content"><app-club-member [club]="selectedClub"></app-club-member></div>
-      <div *ngIf="questionnaireIsVisible" class="clubs_sub_content">Fragebogen</div>
+      <div *ngIf="questionnaireIsVisible" class="clubs_sub_content"><app-club-questionnaire [club]="selectedClub"></app-club-questionnaire></div>
     </div>
   </div>
 </div>
