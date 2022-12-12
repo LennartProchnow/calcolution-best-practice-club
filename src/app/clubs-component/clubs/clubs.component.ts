@@ -15,6 +15,8 @@ export class ClubsComponent implements OnInit {
   userClubs: Club[];
   selectedClub?: Club;
 
+  contentName = 'Start';
+
   //visibility of components
   startIsVisible = false;
   clubSelfEstimationIsVisible = false;
@@ -57,6 +59,34 @@ export class ClubsComponent implements OnInit {
     this.measuresIsVisible = 'measures' == contentType;
     this.memberIsVisible = 'member' == contentType;
     this.questionnaireIsVisible = 'questionnaire' == contentType;
+
+    this.changeContentName();
+  }
+
+  /**
+  * Changes content name shown as addition to the club name
+  */
+  changeContentName(): void {
+     if(this.startIsVisible) {
+      this.contentName = 'Start';
+     } else if (this.clubSelfEstimationIsVisible) {
+      this.contentName = 'Selbsteinschätzung';
+     } else if (this.clubSelfEstimationIsVisible) {
+      this.contentName = 'Selbsteinschätzung';
+     } else if (this.measuresIsVisible) {
+      this.contentName = 'Maßnahmen';
+     } else if (this.memberIsVisible) {
+      this.contentName = 'Mitglieder';
+     } else if (this.questionnaireIsVisible) {
+      this.contentName = 'Fragebogen';
+     }
+  }
+
+  /**
+  * Checks if the current User is moderator of this club
+  */
+  checkAuthorization(club: Club): boolean {
+    return club.moderator.email == this.user.email;
   }
 
 }

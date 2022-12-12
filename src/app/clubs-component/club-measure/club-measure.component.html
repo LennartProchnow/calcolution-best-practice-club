@@ -1,0 +1,128 @@
+<div class="club-measure-content">
+  <div class="grid_content">
+    <!-- Maßnahmentyp -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Maßnahmentyp
+        </mat-card-title>
+        <mat-card-content class ="card_content_chart_type">
+          <canvas class = "chart_type"
+                  baseChart
+                  [data]="barChartData"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [type]="'bar'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Betrachteter Bereich -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Betrachteter Bereich
+        </mat-card-title>
+        <mat-card-content class="card_content_part">
+          <canvas baseChart
+                  class="chart_part"
+                  [type]="'pie'"
+                  [datasets]="pieChartDatasets"
+                  [labels]="pieChartLabels"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Maßnahmenübersicht -->
+    <div class="grid_item_measures">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Maßnahmenübersicht
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <table mat-table [dataSource]="tableData" multiTemplateDataRows class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Typ">
+              <th mat-header-cell *matHeaderCellDef> Typ </th>
+              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Titel">
+              <th mat-header-cell *matHeaderCellDef> Titel </th>
+              <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Relative Ersparnis">
+              <th mat-header-cell *matHeaderCellDef> Relative Ersparnis </th>
+              <td mat-cell *matCellDef="let element"> {{element.savings}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Kosten pro Einheit">
+              <th mat-header-cell *matHeaderCellDef> Kosten pro Einheit </th>
+              <td mat-cell *matCellDef="let element"> {{element.costs}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ROI">
+              <th mat-header-cell *matHeaderCellDef> ROI </th>
+              <td mat-cell *matCellDef="let element"> {{element.roi}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Stakeholder">
+              <th mat-header-cell *matHeaderCellDef> Stakeholder </th>
+              <td mat-cell *matCellDef="let element"> {{element.stakeholder}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expand">
+              <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                  <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                  <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+              <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                <div class="example-element-detail"
+                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                  <div class="example-element-description">
+                    {{element.description}}
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+                class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+          </table>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Einsparung CO2 -->
+    <div class="grid_item_c02_progess">
+      <mat-card class="co2_progress_box">
+        <mat-card-header>
+          <mat-card-title>Einsparung CO2</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-progress-bar matTooltip="{{progressTooltip}}" mode="determinate" value="{{progressBarValue}}" class="progressBar"></mat-progress-bar>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

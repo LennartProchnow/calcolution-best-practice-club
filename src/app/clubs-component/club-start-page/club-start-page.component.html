@@ -1,0 +1,118 @@
+<div class="start_page_content">
+  <div class="grid_content">
+
+    <!-- club Beschreibung -->
+    <div class="grid_item_description">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Club Beschreibung
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <span *ngIf="club">{{club.description}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Events -->
+    <div class="grid_item_events">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Bevorstehende Events
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <div>
+            <button mat-stroked-button>heute</button>
+            <button mat-stroked-button>Nächste Woche</button>
+            <button mat-stroked-button>Nächstes Jahr</button>
+          </div>
+          <div>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon color="primary">turned_in_not</mat-icon>
+                <div matLine>Sustainable Real Estate</div>
+                <div matLine>22 Dez 19:00-20:00 Uhr</div>
+                <div matLine>Remote</div>
+                <mat-divider></mat-divider>
+                <!-- <span matListItemLine>Remote</span> -->
+                <!-- <span matListItemMeta>Club 6</span> -->
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon color="primary">turned_in_not</mat-icon>
+                <div matLine>Best Practice Measures</div>
+                <div matLine>22 Jan 14:00-16:00 Uhr</div>
+                <div matLine>Hamburg</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Feed -->
+    <div class="grid_item_feed">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Feed
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <div class="user_post_content">
+            <mat-form-field appearance="outline" class="post_form_field">
+              <div class="post_text_field">
+                <mat-icon color="primary">account_circle</mat-icon>
+                <input matInput type="text" [(ngModel)]="postValue" placeholder="Was gibt es neues?">
+                <button mat-button matTooltip="senden" (click)="addPost()"><mat-icon color="primary">send</mat-icon></button>
+              </div>
+              <button mat-button matTooltip="markiere einen Nutzer" class="form_button"><mat-icon color="primary" class="form_button_icon">alternate_email</mat-icon></button>
+              <button mat-button matTooltip="füge ein Bild hinzu" class="form_button"><mat-icon color="primary" class="form_button_icon">photo</mat-icon></button>
+              <button mat-button matTooltip="füge einen Termin hinzu" class="form_button"><mat-icon color="primary" class="form_button_icon">calendar_today</mat-icon></button>
+            </mat-form-field>
+          </div>
+          <div class="posts_container">
+            <mat-card class="feed_item" *ngFor="let post of posts">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon color="primary">account_circle</mat-icon>
+                  <p>{{post.creator.forename}} {{post.creator.surname}}</p>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{post.post}}</p>
+                <mat-card-actions align="begin">
+                  <button mat-button disabled><mat-icon color="primary">chat</mat-icon>
+                    {{post.likes}}</button>
+                  <button mat-button disabled><mat-icon color="primary">favorite_border</mat-icon>
+                    {{post.comments}}</button>
+                </mat-card-actions>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Fokusthemen -->
+    <div class="grid_item_focus">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Fokusthemen
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <div class="focus_h2">
+            <h2><mat-icon color="primary">mark_unread_chat_alt</mat-icon> Neie Berichtspflicht ab 01.01.2024</h2>
+          </div>
+          <p>
+            Ab Januar 2024 sind erhebliche Änderungen in Form und Inhalt der Berichtserstattung zu Nachhaltigkeit nötig.
+          </p>
+          <p>
+            Weitere Informationen finden Sie hier:
+          </p>
+
+          <a href="www.csr-berichtspflicht.de">CSRD (csr-berichtspflicht.de)</a>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

@@ -27,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {DialogModule} from '@angular/cdk/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +38,10 @@ import { DashboardComponent} from './dashboard/dashboard.component';
 import { ClubsComponent } from './clubs-component/clubs/clubs.component';
 import { ClubMemberComponent } from './clubs-component/club-member/club-member.component';
 import { ClubAssessmentComponent } from './clubs-component/club-assessment/club-assessment.component';
+import { ClubMeasureComponent } from './clubs-component/club-measure/club-measure.component';
+import { ClubStartPageComponent } from './clubs-component/club-start-page/club-start-page.component';
+import { ClubQuestionnaireComponent } from './clubs-component/club-questionnaire/club-questionnaire.component';
+import { ClubQuestionsChooseDialogComponent } from './clubs-component/club-questions-choose-dialog/club-questions-choose-dialog.component';
 
 
 const OPTIONS = {
@@ -55,7 +60,11 @@ const OPTIONS = {
     DashboardComponent,
     ClubsComponent,
     ClubMemberComponent,
-    ClubAssessmentComponent
+    ClubAssessmentComponent,
+    ClubMeasureComponent,
+    ClubStartPageComponent,
+    ClubQuestionnaireComponent,
+    ClubQuestionsChooseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +89,8 @@ const OPTIONS = {
     MatTableModule,
     MatDividerModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    DialogModule
   ],
   providers: [
     {
