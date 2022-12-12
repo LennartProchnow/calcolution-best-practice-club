@@ -22,7 +22,7 @@ export class ClubMeasureComponent implements OnInit {
 
   panelOpenState = false;
 
-  public barChartLegend = true;
+  public barChartLegend = false;
   public barChartPlugins = [];
 
   progressBarValue=40;
