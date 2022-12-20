@@ -38,7 +38,7 @@ const CLUBQUESTIONS = {
 
 const CLUBS = {
   0: new Club(0, 'Calcolution Club', [
-                USERS["christian.schehm@calcolution.com"],
+                USERS["christian.schwehm@calcolution.com"],
                 USERS["max.mustermann@nordakademie.de"],
                 USERS['dennis.clausen@nordakademie.de'],
                 USERS['martin.schmidt@nordakademie.de']

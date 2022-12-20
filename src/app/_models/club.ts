@@ -17,7 +17,9 @@ export class Club {
     this.participants = participants;
     this.moderator = moderator;
     this.description = description;
-    this.questions = questions;
+    if(questions) {
+      this.questions = questions;
+    }
   }
 
   addQuestion(question: ClubQuestion): void {
