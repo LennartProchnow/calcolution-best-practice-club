@@ -13,7 +13,7 @@ const ORGANISATIONS = {
 }
 
 const USERS = {
-   "christian.schehm@calcolution.com": new User(0, "christian.schehm@calcolution.com", "Geheim123",
+   "christian.schwehm@calcolution.com": new User(0, "christian.schwehm@calcolution.com", "Geheim123",
                                         [ORGANISATIONS[0] , ORGANISATIONS[1]], "Christian", "Schwehm", [0 , 1]),
    'max.mustermann@nordakademie.de': new User(1, 'max.mustermann@nordakademie.de', 'Geheim123',
                                         [ORGANISATIONS[2]], 'Max', 'Mustermann', [0 , 1]),
@@ -42,7 +42,7 @@ const CLUBS = {
                 USERS["max.mustermann@nordakademie.de"],
                 USERS['dennis.clausen@nordakademie.de'],
                 USERS['martin.schmidt@nordakademie.de']
-            ], USERS["christian.schehm@calcolution.com"],
+            ], USERS["christian.schwehm@calcolution.com"],
             'Dies ist ein durch Calcolution öffentlich zugänglicher Best Practice Club, welcher zur Stärkung der Transparenz und als Referenzwert für weitere Clubs dienen soll. Das Ziel soll es sein, eine Plattform für Diskussionen der Stakeholder untereinander zu schaffen.',
             [
               CLUBQUESTIONS[0],
@@ -51,7 +51,7 @@ const CLUBS = {
             ]
             ),
   1: new Club(1, 'Real Estate Sustanability', [
-                USERS["christian.schehm@calcolution.com"],
+                USERS["christian.schwehm@calcolution.com"],
                 USERS['max.mustermann@nordakademie.de']
             ], USERS['max.mustermann@nordakademie.de'],
             'Dies ist ein Club zur Kommunikation zwischen Stakeholder für den Austausch zu Maßnahmen in der Real Estate Branche.'

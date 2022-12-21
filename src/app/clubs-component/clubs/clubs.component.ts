@@ -86,6 +86,8 @@ export class ClubsComponent implements OnInit {
   * Checks if the current User is moderator of this club
   */
   checkAuthorization(club: Club): boolean {
+    console.log('moderator: ' + club.moderator.email);
+    console.log('user: ' + this.user.email);
     return club.moderator.email == this.user.email;
   }
 
