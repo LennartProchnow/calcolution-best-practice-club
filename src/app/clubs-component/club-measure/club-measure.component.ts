@@ -22,28 +22,28 @@ export class ClubMeasureComponent implements OnInit {
 
   panelOpenState = false;
 
-  public barChartLegend = false;
-  public barChartPlugins = [];
-
+  //progressbar attributes
   progressBarValue=40;
-
   progressTooltip: string='';
 
-  public barChartData: ChartConfiguration<'bar'>['data'];
-
-  public barChartOptions: ChartConfiguration<'bar'>['options'] = {
+  //bar chart attributes
+  barChartLegend = false;
+  barChartPlugins = [];
+  barChartData: ChartConfiguration<'bar'>['data'];
+  barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: false,
   };
 
-  public pieChartOptions: ChartOptions<'pie'> = {
+  //pie chart attributes
+  pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };
-  public pieChartLabels = [ 'Fußabdruck', 'Geldabdruck' , 'Handabdruck'];
-  public pieChartDatasets = [ {
+  pieChartLabels = [ 'Fußabdruck', 'Geldabdruck' , 'Handabdruck'];
+  pieChartDatasets = [ {
     data: [ 300, 500, 100]
   } ];
-  public pieChartLegend = false;
-  public pieChartPlugins = [];
+  pieChartLegend = false;
+  pieChartPlugins = [];
 
   tableData = ELEMENT_DATA;
   columnsToDisplay = ['Typ', 'Titel', 'Relative Ersparnis', 'Kosten pro Einheit', 'ROI', 'Stakeholder'];

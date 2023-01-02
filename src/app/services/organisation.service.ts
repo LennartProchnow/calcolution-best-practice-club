@@ -14,8 +14,7 @@ export class OrganisationService {
   private readonly _organisation_key = 'selectedOrganisation';
 
   constructor(
-    private storageService: StorageService,
-    private organisationService: OrganisationService
+    private storageService: StorageService
   ) {
     this.organisationSubject = new BehaviorSubject<Organisation>(JSON.parse(storageService.get(this._organisation_key) as string));
     this.organisation = this.organisationSubject.asObservable();

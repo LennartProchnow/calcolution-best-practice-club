@@ -5,7 +5,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { of } from "rxjs";
 import {User} from '../_models/user';
-import { OrganisationService } from '../services/organisation.service';
+import { UserService } from '../services/user.service';
 import {StorageService} from './storage.service';
 import {Club} from '../_models/club';
 import {UserRepository} from '../repository/repository';
@@ -27,7 +27,7 @@ export class AuthenticationService {
       private router: Router,
       private http: HttpClient,
       private storageService: StorageService,
-      private organisationService: OrganisationService,
+      private userService: UserService,
       private userRepository: UserRepository
   ) {
       this.userSubject = new BehaviorSubject<User>(JSON.parse(storageService.get(this._user_storage_key) as string));
@@ -62,20 +62,11 @@ export class AuthenticationService {
      * @returns an observable of the user
      */
     login(username: string, password: string): Observable<User> {
-      //let user = new User(username, password);
-      //return this.http.post<User>('/api/login', user)
-      //  .pipe(map( (u) => {
-       //   user = u;
-       //   this.storageService.clear();
-       //   this.storageService.set(this._storage_key, JSON.stringify(user));
-       //   this.userSubject.next(user);
-       //   return user;
-       // }));
         let user = this.userRepository.login(username, password);
         //hier mag er die zirkuläre Abhängigkeit nicht
         this.storageService.clear();
         this.storageService.set(this._user_storage_key, JSON.stringify(user));
-        this.organisationService.setSelectedOrganisation(user.organisation[0]);
+        this.userService.setSelectedProfile(user.profiles[0]);
         this.userSubject.next(user);
         return of(user);
     }

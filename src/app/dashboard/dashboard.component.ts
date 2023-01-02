@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
+import {AuthenticationService} from '../services/authentication.service';
+import {User} from '../_models/user';
 
 export interface PeriodicElement {
   owner: string;
@@ -19,41 +21,58 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-    public barChartLegend = true;
-    public barChartPlugins = [];
+
+    barChartLegend = true;
+    barChartPlugins = [];
 
     progressBarValue=40;
-
-    moins = ['moin'];
 
     progressTooltip: string='';
 
     items: string[]=['placeholder'];
 
-    test: string[]=['moinmoin'];
-
     displayedColumns: string[] = ['owner', 'name', 'status'];
     dataSource = ELEMENT_DATA;
 
-    public barChartData: ChartConfiguration<'bar'>['data'];
+    barChartData: ChartConfiguration<'bar'>['data'];
 
-    public barChartOptions: ChartConfiguration<'bar'>['options'] = {
+    barChartOptions: ChartConfiguration<'bar'>['options'] = {
       responsive: false,
     };
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.progressBarValue = this.createRandomNumber(30, 80);
     this.progressTooltip = this.progressBarValue + '% bereits eingespart!';
+    let currentUser;
+    let stakeholderNames: string[] = [];
+    let numberOfParticipation: number[] = [];
+    let numberOfModerator: number[] = [];
+    let numberOfQuestionnaire: number[] = [];
+    let numberOfEvents: number[] = [];
+
+    this.authenticationService.getUser().subscribe((user: User) => {
+            if (user) {
+              currentUser = user;
+              currentUser.profiles.forEach(p => {
+                //initialize bar chart data
+                stakeholderNames.push(p.stakeholder.name);
+                numberOfParticipation.push(this.createRandomNumber(0,100));
+                numberOfModerator.push(this.createRandomNumber(0,100));
+                numberOfQuestionnaire.push(this.createRandomNumber(0,100));
+                numberOfEvents.push(this.createRandomNumber(0,100));
+              })
+            }
+          });
 
     this.barChartData = {
-                              labels: [ 'Familie Schwehm', 'Calcolution GmbH'],
+                              labels: stakeholderNames,
                               datasets: [
-                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100) ], label: 'Anzahl Clubs (Mitglied)' },
-                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl Clubs (Eigentümer)' },
-                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl Fragebogen' },
-                                { data: [ this.createRandomNumber(0,100), this.createRandomNumber(0,100)], label: 'Anzahl teilgenommene Events' }
+                                { data: numberOfParticipation, label: 'Anzahl Clubs (Mitglied)' },
+                                { data: numberOfModerator, label: 'Anzahl Clubs (Eigentümer)' },
+                                { data: numberOfQuestionnaire, label: 'Anzahl Fragebogen' },
+                                { data: numberOfEvents, label: 'Anzahl teilgenommene Events' }
                               ]
                             };
   }

@@ -31,7 +31,7 @@ export class ClubQuestionsChooseDialogComponent implements OnInit {
 
     this.selection.select(...this.club.questions);
 
-    this.questionService.getAllQuestions()
+    this.questionService.readAllQuestionsAsClubQuestions()
       .subscribe(result => {
         result.forEach(q => {
           if(!this.questions.includes(q)) {

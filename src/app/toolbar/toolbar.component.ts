@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import {OrganisationService} from '../services/organisation.service';
+import {UserService} from '../services/user.service';
 import { User } from '../_models/user';
+import { Profile } from '../_models/profile';
 import { Organisation } from '../_models/organisation';
 
 
@@ -20,13 +22,11 @@ export class ToolbarComponent implements OnInit {
 
   selectedOrganisationName?: String;
 
-  organisations?: Organisation[];
-
-
+  organisations: Organisation[] = [];
 
   constructor(
     private authenticationService: AuthenticationService,
-    private organisationService: OrganisationService
+    private userService: UserService
   ) {
 
   }
@@ -36,13 +36,14 @@ export class ToolbarComponent implements OnInit {
         if (user) {
           this.user = user;
           this.fullUserName = this.user.forename + " " + this.user.surname;
-          this.organisations = user.organisation;
+          this.user.profiles.forEach(p => {
+            this.organisations.push(p.stakeholder);
+          })
         }
       });
-      this.organisationService.getSelectedOrganisation().subscribe((organisation: Organisation) => {
-        console.log(organisation);
-        if(organisation) {
-          this.setSelectedOrganisationName(organisation);
+      this.userService.getSelectedProfile().subscribe((profile: Profile) => {
+        if(profile) {
+          this.setSelectedOrganisationName(profile.stakeholder);
         }
       });
     }
@@ -53,7 +54,7 @@ export class ToolbarComponent implements OnInit {
 
   /**
    * Method to set the userName in the view
-   *
+   * @return the full name of the current authenticated user
    *
    */
   userName(): String {
@@ -67,20 +68,24 @@ export class ToolbarComponent implements OnInit {
 
   /**
    * Method to detect if the user is authenticated and if the user component should be visible
+   * @return if the user is authenticated
    */
   isAuthenticated(): boolean {
     return !!this.authenticationService.userValue;
   }
 
   /**
-   * Method to set the new selected Organisation through the view
+   * Method to set the new selected Profile through the view
    *
    * @param organisation organisation to be selected
    */
-  changeSelectedOrganisation(organisation: Organisation): void {
-    console.log(organisation);
+  changeSelectedProfile(organisation: Organisation): void {
     this.setSelectedOrganisationName(organisation);
-    this.organisationService.setSelectedOrganisation(organisation);
+
+    let profile = this.userService.getProfileByStakeholder(this.user, organisation);
+    if(profile) {
+      this.userService.setSelectedProfile(profile);
+    }
   }
 
   /**

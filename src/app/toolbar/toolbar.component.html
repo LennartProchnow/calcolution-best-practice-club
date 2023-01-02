@@ -42,7 +42,7 @@
             </button>
           </mat-menu>
           <mat-menu #organisationMenu="matMenu" xPosition="before">
-            <button mat-menu-item *ngFor="let item of organisations" [disabled]="'@'+item.name === selectedOrganisationName" (click)="changeSelectedOrganisation(item)"><span>{{item.name}}</span></button>
+            <button mat-menu-item *ngFor="let item of organisations" [disabled]="'@'+item.name === selectedOrganisationName" (click)="changeSelectedProfile(item)"><span>{{item.name}}</span></button>
             <button mat-menu-item>
               <mat-icon color="primary">add_circle</mat-icon>
               <span>neue Organisation</span>
