@@ -42,6 +42,7 @@ import { ClubMeasureComponent } from './clubs-component/club-measure/club-measur
 import { ClubStartPageComponent } from './clubs-component/club-start-page/club-start-page.component';
 import { ClubQuestionnaireComponent } from './clubs-component/club-questionnaire/club-questionnaire.component';
 import { ClubQuestionsChooseDialogComponent } from './clubs-component/club-questions-choose-dialog/club-questions-choose-dialog.component';
+import { QuestionnaireCatalogComponent } from './questionnaire/questionnaire-catalog/questionnaire-catalog.component';
 
 
 const OPTIONS = {
@@ -64,7 +65,8 @@ const OPTIONS = {
     ClubMeasureComponent,
     ClubStartPageComponent,
     ClubQuestionnaireComponent,
-    ClubQuestionsChooseDialogComponent
+    ClubQuestionsChooseDialogComponent,
+    QuestionnaireCatalogComponent
   ],
   imports: [
     BrowserModule,
