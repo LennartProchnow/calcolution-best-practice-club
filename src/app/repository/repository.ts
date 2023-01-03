@@ -13,7 +13,7 @@ const ORGANISATIONS = {
   1: new Organisation(1, "Familie Schwehm", "Privat"),
   2: new Organisation(2, "Lufthansa AG", "Luftfahrt"),
   3: new Organisation(3, "Familie Clausen", "Privat"),
-  4: new Organisation(4, "Arubis", "Chemie")
+  4: new Organisation(4, "Aurubis AG", "Chemie")
 }
 
 const QUESTIONS = {
@@ -89,17 +89,19 @@ const PROFILES = {
       new Answer(QUESTIONS[5], 'Luftfahrt', true),
       new Answer(QUESTIONS[6], 'Nachhaltigkeitsbeauftragter', true)
   ], false), [0, 1]),
+  3: new Profile(ORGANISATIONS[3], new Questionnaire([], false), [0]),
+  4: new Profile(ORGANISATIONS[4], new Questionnaire([], false), [0]),
 }
 
 const USERS = {
    "christian.schwehm@calcolution.com": new User(0, "christian.schwehm@calcolution.com", "Geheim123",
                                         [ORGANISATIONS[0] , ORGANISATIONS[1]], "Christian", "Schwehm", [0 , 1], [PROFILES[0], PROFILES[1]]),
    'max.mustermann@nordakademie.de': new User(1, 'max.mustermann@nordakademie.de', 'Geheim123',
-                                        [ORGANISATIONS[2]], 'Max', 'Mustermann', [0 , 1]),
+                                        [ORGANISATIONS[2]], 'Max', 'Mustermann', [0 , 1], [PROFILES[2]]),
    'dennis.clausen@nordakademie.de': new User(2, 'dennis.clausen@nordakademie.de', 'Geheim123',
-                                         [ORGANISATIONS[3]], 'Dennis', 'Clausen', [0]),
+                                         [ORGANISATIONS[3]], 'Dennis', 'Clausen', [0], [PROFILES[3]]),
    'martin.schmidt@nordakademie.de': new User(3, 'martin.schmidt@nordakademie.de', 'Geheim123',
-                                          [ORGANISATIONS[4]], 'Martin', 'Schmidt', [0])
+                                          [ORGANISATIONS[4]], 'Martin', 'Schmidt', [0], [PROFILES[4]])
 };
 
 const CLUBQUESTIONS = {

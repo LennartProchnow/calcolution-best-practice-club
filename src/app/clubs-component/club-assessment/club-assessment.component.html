@@ -30,7 +30,7 @@
               <mat-selection-list>
                 <mat-list-option *ngFor="let participant of participants">
                   <div matLine>{{participant.fullName}}</div>
-                  <div matLine>{{participant.organisation[0]}}</div>
+                  <div matLine>{{participant.profiles[0].stakeholder.name}}</div>
                 </mat-list-option>
               </mat-selection-list>
             </mat-expansion-panel>

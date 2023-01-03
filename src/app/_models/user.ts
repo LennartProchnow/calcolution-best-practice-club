@@ -8,7 +8,7 @@ export class User {
   surname?: string;
   email?: string;
   password?: string;
-  profiles: Profile[] = [];
+  profiles?: Profile[] = [];
   organisation?: Organisation[] = [];
   clubs?: number[] = [];
 

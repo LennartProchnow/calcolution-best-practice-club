@@ -28,6 +28,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DialogModule} from '@angular/cdk/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -92,7 +93,8 @@ const OPTIONS = {
     MatDividerModule,
     MatExpansionModule,
     MatCheckboxModule,
-    DialogModule
+    DialogModule,
+    MatBadgeModule
   ],
   providers: [
     {
