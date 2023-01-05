@@ -7,8 +7,8 @@
   height: calc(100% - 20px);
   display: grid;
   grid-template-columns: 20% auto;
-  grid-template-rows: 10% 90%;
-  padding: 10px;
+  grid-template-rows: 10% calc(90% - 10px);
+  margin: 10px;
   gap: 10px;
   width: calc(100% - 20px);
 }
@@ -20,7 +20,10 @@
 .gird_item_clubs_navigation {
   grid-column: 1;
   grid-row: 1 / span 2;
+  height: 100%;
   button {
+      position: relative;
+      float: bottom;
       width: 100%;
       text-align: left;
    }
@@ -44,7 +47,7 @@
 
 .card_box {
   background: white;
-  height: 95%;
+  height: calc(100% - 32px);
 }
 
 .navigation-bottom {
