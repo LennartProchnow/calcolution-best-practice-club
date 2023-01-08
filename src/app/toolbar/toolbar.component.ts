@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
-import {OrganisationService} from '../services/organisation.service';
 import {UserService} from '../services/user.service';
 import { User } from '../_models/user';
 import { Profile } from '../_models/profile';
 import { Organisation } from '../_models/organisation';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-toolbar',
@@ -15,22 +14,20 @@ import { Organisation } from '../_models/organisation';
 export class ToolbarComponent implements OnInit {
 
   value = "";
-
   fullUserName: String = "";
-
   user?: User;
-
   selectedOrganisationName?: String;
-
   organisations: Organisation[] = [];
 
   constructor(
     private authenticationService: AuthenticationService,
-    private userService: UserService
-  ) {
+    private userService: UserService,
+    private snackBar: MatSnackBar
+  ) { }
 
-  }
-
+  /**
+  * initialize view at reading current session user and current session profile
+  */
   ngOnInit(): void {
       this.authenticationService.getUser().subscribe((user: User) => {
         if (user) {
@@ -48,8 +45,14 @@ export class ToolbarComponent implements OnInit {
       });
     }
 
-
+  /**
+  * Method to logout the user
+  */
   logout(): void {
+    this.authenticationService.logout().then(() => {
+      console.log("logout");
+      this.snackBar.open('erfolgreich abgemeldet', 'Schließen');
+    });
   }
 
   /**

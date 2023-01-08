@@ -29,6 +29,9 @@ export class ClubsComponent implements OnInit {
     private clubService: ClubService
   ) { }
 
+  /**
+  * initialize current authenticated user and the users clubs
+  */
   ngOnInit(): void {
      this.authenticationService.getUser().subscribe((user: User) => {
        if (user) {
@@ -47,7 +50,7 @@ export class ClubsComponent implements OnInit {
   }
 
   /**
-  * Changes content, when user clicks within the navigation-panel
+  * Changes content, when user selects a component in clubs-navigation-panel
   */
   changeContent(contentType: string, club: Club): void {
     if(club) {
@@ -68,26 +71,25 @@ export class ClubsComponent implements OnInit {
   */
   changeContentName(): void {
      if(this.startIsVisible) {
-      this.contentName = 'Start';
+        this.contentName = 'Start';
      } else if (this.clubSelfEstimationIsVisible) {
-      this.contentName = 'Selbsteinschätzung';
+        this.contentName = 'Selbsteinschätzung';
      } else if (this.clubSelfEstimationIsVisible) {
-      this.contentName = 'Selbsteinschätzung';
+        this.contentName = 'Selbsteinschätzung';
      } else if (this.measuresIsVisible) {
-      this.contentName = 'Maßnahmen';
+        this.contentName = 'Maßnahmen';
      } else if (this.memberIsVisible) {
-      this.contentName = 'Mitglieder';
+        this.contentName = 'Mitglieder';
      } else if (this.questionnaireIsVisible) {
-      this.contentName = 'Fragebogen';
+        this.contentName = 'Fragebogen';
      }
   }
 
   /**
   * Checks if the current User is moderator of this club
+  * @return if the current User is moderator
   */
   checkAuthorization(club: Club): boolean {
-    console.log('moderator: ' + club.moderator.email);
-    console.log('user: ' + this.user.email);
     return club.moderator.email == this.user.email;
   }
 

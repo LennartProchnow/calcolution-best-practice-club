@@ -13,11 +13,13 @@ import { DOCUMENT } from '@angular/common';
 })
 export class QuestionnaireCatalogComponent implements OnInit {
 
-  stakeholderInformationToolTip = 'Allgemeine Fragen über den Stakeholder';
-  sectorToolTip = 'Fragen zur Bestimmung der relevanten Emmissionsaktivitäten und der Detailtiefe dieser Aktivitäten';
-  footprintToolTip = 'Fragen zur Selbsteinschätzung des Carbon Footprints';
-  fingerprintToolTip = 'Fragen zur Selbsteinschätzung der erzeugten Emissionen durch Verhaltensänderungen anderer durch Medien, Kommunikation und innovativen Ideen';
-  moneyToolTip = 'Fragen zur Selbsteinschätzung der Emissionen aus den Tätigkeiten als Kapitalgeber für Unternehmen und Projekten';
+  readonly QUESTIONNAIRE_URL: string = "https://forms.office.com/Pages/ResponsePage.aspx?id=Lw23bt6O-UWFwacZHjWsImiealGHF1NGiTg0sJmxXsRUOElTOU1WNklFWVg1UEpDSUVUMTA2QTczUi4u&wdLOR=cDCC6003B-065A-3B4C-8615-6A6383F11050";
+
+  readonly stakeholderInformationToolTip = 'Allgemeine Fragen über den Stakeholder';
+  readonly sectorToolTip = 'Fragen zur Bestimmung der relevanten Emmissionsaktivitäten und der Detailtiefe dieser Aktivitäten';
+  readonly footprintToolTip = 'Fragen zur Selbsteinschätzung des Carbon Footprints';
+  readonly fingerprintToolTip = 'Fragen zur Selbsteinschätzung der erzeugten Emissionen durch Verhaltensänderungen anderer durch Medien, Kommunikation und innovativen Ideen';
+  readonly moneyToolTip = 'Fragen zur Selbsteinschätzung der Emissionen aus den Tätigkeiten als Kapitalgeber für Unternehmen und Projekten';
 
   //answer categories
   stakeholderInformation: Answer[] = [];
@@ -48,10 +50,15 @@ export class QuestionnaireCatalogComponent implements OnInit {
     responsive: false,
   };
 
-  constructor(private userService: UserService,
-              private questionService: QuestionService,
-              @Inject(DOCUMENT) private document: Document) { }
+  constructor(
+    private userService: UserService,
+    private questionService: QuestionService,
+    @Inject(DOCUMENT) private document: Document
+  ) { }
 
+  /**
+  * initialize barChart with data and reads the current selected profile to set up the questionnaire
+  */
   ngOnInit(): void {
     this.barChartData = {
                         labels: [ '16', '18', '22', '24', '30'],
@@ -72,11 +79,14 @@ export class QuestionnaireCatalogComponent implements OnInit {
           //fill up Categories with all other questions
           this.questionService.readAllQuestionsAsAnswers()
             .subscribe(answers => this.setupCategories(answers));
-
         }
       });
   }
 
+  /**
+  * initialize answers based on their category into these categories
+  * @param answers answers to set into categories
+  */
   private setupCategories(answers: Answer[]): void {
     answers.forEach(answer => {
       switch(answer.question.category) {
@@ -110,9 +120,11 @@ export class QuestionnaireCatalogComponent implements OnInit {
     });
   }
 
+  /**
+  * opens microsoft-forms in a separate window
+  */
   goToQuestionnaire(): void{
-    let url = "https://forms.office.com/Pages/ResponsePage.aspx?id=Lw23bt6O-UWFwacZHjWsImiealGHF1NGiTg0sJmxXsRUOElTOU1WNklFWVg1UEpDSUVUMTA2QTczUi4u&wdLOR=cDCC6003B-065A-3B4C-8615-6A6383F11050";
-    window.open(url, "_blank");
+    window.open(this.QUESTIONNAIRE_URL, "_blank");
   }
 
 }

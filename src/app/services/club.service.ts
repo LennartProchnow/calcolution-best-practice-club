@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { of } from "rxjs";
@@ -8,28 +6,31 @@ import {Club} from '../_models/club';
 import {User} from '../_models/user';
 import {ClubRepository} from '../repository/repository';
 
+/**
+* this service provides crud-functionality for club objects
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class ClubService {
 
-    httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
   constructor(
-      private router: Router,
-      private http: HttpClient,
       private repository: ClubRepository
   ) { }
 
+  /**
+  * function to read all clubs
+  * @return an observable of all clubs
+  */
   readClubs(): Observable<Club[]> {
-      //ToDo: here has to be a http Call
       return of(this.repository.getClubs());
   }
 
+  /**
+  * reads all clubs of an user
+  * @return an observable of all clubs of an user
+  */
   readClubsOfUser(user: User): Observable<Club[]> {
-    //ToDo: here has to be a http Call
     return of(this.repository.findClubsOfUser(user));
   }
 

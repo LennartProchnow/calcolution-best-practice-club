@@ -20,12 +20,14 @@ export class ClubQuestionsChooseDialogComponent implements OnInit {
   selection = new SelectionModel<ClubQuestion>(true, []);
 
   constructor(
-    public dialogRef: DialogRef<Club>,
+    private dialogRef: DialogRef<Club>,
     @Inject(DIALOG_DATA) public club: Club,
-    public questionService: QuestionService) {
+    private questionService: QuestionService
+  ) { }
 
-  }
-
+  /**
+  * initialize dialog with questions out of the club and reads all other questions that are not included in club
+  */
   ngOnInit(): void {
     this.questions.push(...this.club.questions);
 
@@ -41,30 +43,40 @@ export class ClubQuestionsChooseDialogComponent implements OnInit {
       });
   }
 
+  /**
+  * This method writes the selected questions in the club and closes the dialog, when the user clicks on the save-button
+  */
   save(): void {
     this.club.setQuestions(this.selection.selected);
     this.dialogRef.close(this.club);
   }
 
+  /**
+  * this method closes the dialog
+  */
   close(): void {
     this.dialogRef.close(this.club);
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
+  /**
+  * Checks if all rows are selected
+  * @return Whether the number of selected elements matches the total number of rows.
+  */
+  isAllSelected(): boolean {
     const numSelected = this.selection.selected.length;
     const numRows = this.questions.length;
     return numSelected === numRows;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  toggleAllRows() {
+  /**
+  * Selects all rows if they are not all selected - otherwise clear selection.
+  */
+  toggleAllRows(): void {
     if (this.isAllSelected()) {
       this.selection.clear();
-      return;
+    } else {
+      this.selection.select(...this.questions);
     }
-
-    this.selection.select(...this.questions);
   }
 
 }

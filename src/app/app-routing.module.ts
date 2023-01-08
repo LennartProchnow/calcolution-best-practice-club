@@ -6,7 +6,7 @@ import { ClubsComponent } from './clubs-component/clubs/clubs.component';
 import { QuestionnaireCatalogComponent } from './questionnaire/questionnaire-catalog/questionnaire-catalog.component';
 
 const routes: Routes = [
-{path: '', component: DashboardComponent},
+{path: '', component: LoginComponent},
 {path: 'dashboard', component: DashboardComponent},
 {path: 'login', component: LoginComponent},
 {path: 'clubs', component: ClubsComponent},

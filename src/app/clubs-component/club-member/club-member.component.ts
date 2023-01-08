@@ -29,6 +29,9 @@ export class ClubMemberComponent implements OnInit {
 
   constructor() { }
 
+  /*
+  * initialize participants and moderator to display in view
+  */
   ngOnInit(): void {
     if(this.club) {
       this.participants = this.club.participants;

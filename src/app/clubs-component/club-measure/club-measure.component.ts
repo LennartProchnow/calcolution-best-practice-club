@@ -52,6 +52,9 @@ export class ClubMeasureComponent implements OnInit {
 
   constructor() { }
 
+  /**
+  * initialize barChart and progressbar
+  */
   ngOnInit(): void {
     this.progressBarValue = this.createRandomNumber(30, 80);
     this.progressTooltip = this.progressBarValue + '% bereits eingespart!';
@@ -82,6 +85,10 @@ export class ClubMeasureComponent implements OnInit {
 
 }
 
+/*
+* Measure interface for display - this is data is part of the stakeholder carbon footprint system
+* and should be read from there
+*/
 export interface Measure {
   type: string;
   title: string;
@@ -101,7 +108,7 @@ const ELEMENT_DATA: Measure[] = [
     roi: 4,
     stakeholder: 'Max Mustermann',
     description: `Durch das Umrüsten normaler Leuchtmittel auf LEDs auf den
-    Allgemein- und ietflächen konnten 520.000 kWh gespart werden.`
+    Allgemein- und Mietflächen konnten 520.000 kWh gespart werden.`
   },
   {
       type: 'Wassereffizient',

@@ -5,6 +5,9 @@ import { Organisation } from '../_models/organisation';
 import { StorageService} from './storage.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 
+/**
+* this service provides CRUD functionality for user objects
+*/
 @Injectable({
   providedIn: 'root'
 })

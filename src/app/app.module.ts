@@ -29,10 +29,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DialogModule} from '@angular/cdk/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HealthComponent } from './health/health.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
@@ -55,7 +55,6 @@ const OPTIONS = {
 @NgModule({
   declarations: [
     AppComponent,
-    HealthComponent,
     ToolbarComponent,
     LoginComponent,
     NavigationbarComponent,
@@ -94,7 +93,8 @@ const OPTIONS = {
     MatExpansionModule,
     MatCheckboxModule,
     DialogModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSnackBarModule
   ],
   providers: [
     {

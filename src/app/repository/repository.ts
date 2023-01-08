@@ -155,7 +155,6 @@ export class UserRepository {
 })
 export class OrganisationRepository {
 
-
 }
 
 @Injectable({
@@ -183,4 +182,15 @@ export class ClubRepository {
   getClubs(): Club[] {
     return [CLUBS[0], CLUBS[1]];
   }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class QuestionRepository {
+
+  readAllQuestions(): Question[] {
+    return Object.values(QUESTIONS);
+  }
+
 }

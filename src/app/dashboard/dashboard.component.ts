@@ -3,13 +3,8 @@ import { ChartConfiguration } from 'chart.js';
 import {AuthenticationService} from '../services/authentication.service';
 import {User} from '../_models/user';
 
-export interface PeriodicElement {
-  owner: string;
-  name: string;
-  status: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
+//this is a mock up of the questionnaire-model
+const ELEMENT_DATA = [
   {owner: 'Calcolution', name: 'Default Fragebogen', status: 'Offen'},
   {owner: 'Calcolution', name: 'Fragebogen Calcolution', status: 'Geteilt'},
   {owner: 'Calcolution', name: 'Fragebogen Familie Schwehm', status: 'Abgeschlossen'},
@@ -22,26 +17,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardComponent implements OnInit {
 
-    barChartLegend = true;
-    barChartPlugins = [];
+  //progressbar
+  progressBarValue=40;
+  progressTooltip: string='';
 
-    progressBarValue=40;
-
-    progressTooltip: string='';
-
-    items: string[]=['placeholder'];
-
-    displayedColumns: string[] = ['owner', 'name', 'status'];
-    dataSource = ELEMENT_DATA;
-
-    barChartData: ChartConfiguration<'bar'>['data'];
-
-    barChartOptions: ChartConfiguration<'bar'>['options'] = {
-      responsive: false,
-    };
+  //bar chart
+  displayedColumns: string[] = ['owner', 'name', 'status'];
+  dataSource = ELEMENT_DATA;
+  barChartData: ChartConfiguration<'bar'>['data'];
+  barChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: false,
+  };
+  barChartLegend = true;
+  barChartPlugins = [];
 
   constructor(private authenticationService: AuthenticationService) { }
 
+  /**
+  * read current authenticated user and prepare view
+  */
   ngOnInit(): void {
     this.progressBarValue = this.createRandomNumber(30, 80);
     this.progressTooltip = this.progressBarValue + '% bereits eingespart!';
@@ -77,6 +71,12 @@ export class DashboardComponent implements OnInit {
                             };
   }
 
+  /**
+  * this method creates a random number between @param min and @param max
+  * @param min min value of random number
+  * @param max max value of random number
+  * @return random number
+  */
   createRandomNumber(min: number, max: number): number {
       return Math.floor(Math.random() * (max - min) + min);
   }

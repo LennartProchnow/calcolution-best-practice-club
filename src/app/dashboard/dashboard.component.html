@@ -27,8 +27,7 @@
           <mat-card-title>Clubs</mat-card-title>
         </mat-card-header>
         <mat-card-content class = "card_content">
-          <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <div *cdkVirtualFor="let item of items" class="example-item">
+            <div class="scrollable_div">
               <mat-selection-list [multiple]="false">
                 <mat-list-option>
                   <div style="display:flex">
@@ -71,7 +70,6 @@
                 </mat-list-option>
               </mat-selection-list>
             </div>
-          </cdk-virtual-scroll-viewport>
         </mat-card-content>
       </mat-card>
     </div>

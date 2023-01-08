@@ -21,6 +21,9 @@ export class ClubStartPageComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) { }
 
+  /**
+  * Reads the current authenticated user and the clubs posts
+  */
   ngOnInit(): void {
     this.authenticationService.getUser().subscribe((user: User) => {
        if (user) {
@@ -36,6 +39,9 @@ export class ClubStartPageComponent implements OnInit {
 
   }
 
+  /**
+  * add the new post value to the view, when the current user clicks send
+  */
   addPost(): void {
     if(this.postValue && this.user) {
       let post = new Post(this.user, this.postValue, 0, 0);
