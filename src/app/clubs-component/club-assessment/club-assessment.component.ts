@@ -19,6 +19,9 @@ export class ClubAssessmentComponent implements OnInit {
 
   constructor() { }
 
+  /**
+  * initialize participants of the club to display in filter
+  */
   ngOnInit(): void {
     if(this.club) {
       this.participants = this.club.participants;

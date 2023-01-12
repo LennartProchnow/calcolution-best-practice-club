@@ -8,27 +8,22 @@
   width: calc(100% - 10px);
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-rows: calc(50% - 5px) calc(50% - 5px);
-  padding-bottom:10px;
+  grid-template-rows: 50% 50%;
   gap: 10px;
 }
 
 .grid_item {
-  height: calc(100% + 5px);
+  height: 100%;
 }
 
 .grid_item_member_chart {
   grid-column: 1;
   grid-row: 1 / span 2;
-  height: calc(100% - 2px);
+  height: 100%;
 }
 
 .card_content_member_chart {
   height:96%;
-}
-
-.card_box_member_chart {
-  height: 96%;
 }
 
 .grid_item_moderator {
@@ -43,7 +38,7 @@
 
 .card_box {
   background: white;
-  height:90%;
+  height: calc(100% - 32px); // because of mat-card margin
 }
 
 .card_content {
@@ -59,7 +54,7 @@
 }
 
 .chart{
-  height: 50%;
+  height: 40%;
   display: block;
   margin: auto;
 }

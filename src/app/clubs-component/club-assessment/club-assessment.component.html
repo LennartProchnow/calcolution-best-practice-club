@@ -15,12 +15,12 @@
 
     <!-- Filter -->
     <div class="grid_item">
-      <mat-card class="filter_card_box">
+      <mat-card class="card_box">
         <mat-card-title>
           Filter
         </mat-card-title>
         <mat-card-content class="card_content">
-          <mat-accordion>
+          <mat-accordion multi="false">
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -30,12 +30,11 @@
               <mat-selection-list>
                 <mat-list-option *ngFor="let participant of participants">
                   <div matLine>{{participant.fullName}}</div>
-                  <div matLine>{{participant.organisation[0]}}</div>
+                  <div matLine>{{participant.profiles[0].stakeholder.name}}</div>
                 </mat-list-option>
               </mat-selection-list>
             </mat-expansion-panel>
-          </mat-accordion>
-          <mat-accordion>
+
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -48,9 +47,7 @@
                 </mat-list-option>
               </mat-selection-list>
             </mat-expansion-panel>
-          </mat-accordion>
 
-          <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -63,9 +60,7 @@
                 </mat-list-option>
               </mat-selection-list>
             </mat-expansion-panel>
-          </mat-accordion>
 
-          <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>

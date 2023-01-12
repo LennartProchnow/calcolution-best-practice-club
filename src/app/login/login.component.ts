@@ -3,8 +3,6 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {AuthenticationService} from '../services/authentication.service';
-//import {ValidateLatin1} from '@validators/latin1.validator.directive';
-
 
 @Component({
   selector: 'app-login',
@@ -26,8 +24,8 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if (this.authenticationService.userValue) {
-      console.log("der User ist schon eingeloggt");
-      this.router.navigate(['/']);
+      console.log("User is already logged in");
+      this.router.navigate(['/dashboard/']);
     }
   }
 
@@ -36,9 +34,7 @@ export class LoginComponent implements OnInit {
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
-    this.returnUrl =
-      //this.route.snapshot.queryParams.redirect_uri ||
-      '/';
+    this.returnUrl = '/dashboard';
   }
 
   /**
@@ -55,20 +51,10 @@ export class LoginComponent implements OnInit {
    */
   login(): void {
     this.submitted = true;
-
-    //if (this.loginForm?.invalid) {
-    //  return;
-    //}
-
-    //this.progressSpinnerService.showSpinner();
-    //this.loading = true;
-    console.log(this.f?.username.value);
-    console.log(this.f?.password.value);
     this.authenticationService.login(this.f?.username.value, this.f?.password.value)
-      //.pipe(first())
       .subscribe(
          () => {
-          console.log("zurück routen");
+          console.log('route back to url');
           this.router.navigate([this.returnUrl]);
         },
         (error: string) => {

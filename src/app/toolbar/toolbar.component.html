@@ -14,6 +14,7 @@
       </div>
       <span class="fill-space"></span>
       <div *ngIf="user" class="right">
+        <mat-icon matBadge="3" class = "toolbar_icon" color="primary">notification_important</mat-icon>
         <mat-icon class = "toolbar_icon" color="primary">account_circle</mat-icon>
 
           <div class = "user_organisation">
@@ -36,13 +37,13 @@
               <mat-icon color="primary">account_circle</mat-icon>
               <span>Profil bearbeiten</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="logout()">
               <mat-icon color="primary">power_settings_new</mat-icon>
               <span>Logout</span>
             </button>
           </mat-menu>
           <mat-menu #organisationMenu="matMenu" xPosition="before">
-            <button mat-menu-item *ngFor="let item of organisations" [disabled]="'@'+item.name === selectedOrganisationName" (click)="changeSelectedOrganisation(item)"><span>{{item.name}}</span></button>
+            <button mat-menu-item *ngFor="let item of organisations" [disabled]="'@'+item.name === selectedOrganisationName" (click)="changeSelectedProfile(item)"><span>{{item.name}}</span></button>
             <button mat-menu-item>
               <mat-icon color="primary">add_circle</mat-icon>
               <span>neue Organisation</span>

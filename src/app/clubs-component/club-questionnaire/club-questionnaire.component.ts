@@ -19,15 +19,20 @@ export class ClubQuestionnaireComponent implements OnInit {
 
   columnsToDisplay = ['Nummer der Frage', 'Frage', 'Opt.', 'Kategorie'];
 
-  constructor(public dialog: Dialog) { }
+  constructor(private dialog: Dialog) { }
 
+  /**
+  * initialize questions to display in table
+  */
   ngOnInit(): void {
     if(this.club) {
       this.tableData = this.club.questions;
-      console.log(this.tableData);
     }
   }
 
+  /**
+  * Opens dialog to choose questions and writes them back into club when dialog closes
+  */
   openChooseDialog(): void {
     const dialogRef = this.dialog.open(ClubQuestionsChooseDialogComponent, {
       width: '1000px',
@@ -35,7 +40,6 @@ export class ClubQuestionnaireComponent implements OnInit {
       });
 
     dialogRef.closed.subscribe(result => {
-      console.log('The dialog was closed');
       this.tableData = this.club.questions;
     });
   }

@@ -1,9 +1,9 @@
 export class Organisation {
   id: number;
-  name: String;
-  industry: String;
+  name: string;
+  industry: string;
 
-  constructor(id:number, name:String, industry:String) {
+  constructor(id:number, name: string, industry: string) {
     this.id = id;
     this.name = name;
     this.industry = industry;

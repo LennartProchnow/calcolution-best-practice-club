@@ -1,0 +1,188 @@
+<div class="questionnaire_catalog_content">
+  <div class="grid_content">
+    <!-- My Catalog Chart -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Übersicht
+        </mat-card-title>
+        <mat-card-content class="card_content_chart_type">
+          <canvas baseChart
+                  class="pie_chart"
+                  [type]="'pie'"
+                  [datasets]="pieChartDatasets"
+                  [labels]="pieChartLabels"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- My Catalog -->
+    <div class="catalog_grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          <span>Fragenkatalog</span>
+          <span class="fill-space"></span>
+          <button mat-icon-button matTooltip="Zum Fragebogen" class="align_right" (click)="goToQuestionnaire()"><mat-icon color="primary">open_in_new</mat-icon></button>
+        </mat-card-title>
+        <mat-card-content class="card_content">
+          <p>Dieser Fragenbogen ist aus der Sicht des Stakeholders {{stakeholderName}} ausgefüllt</p>
+
+          <mat-accordion multi="false">
+
+            <!-- Stakeholderangaben -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <p>Stakeholderangaben</p>
+                    <span class="fill-space"></span>
+                    <mat-icon matTooltip="{{stakeholderInformationToolTip}}" color="primary">info</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="answer_content">
+                <mat-accordion multi="false">
+                  <mat-expansion-panel *ngFor="let answer of stakeholderInformation">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{answer.question.number}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{answer.question.question}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <span>{{answer.answer}}</span>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </mat-expansion-panel>
+
+            <!-- relevante Bereiche -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Relevante Bereiche</p>
+                  <span class="fill-space"></span>
+                  <mat-icon matTooltip="{{sectorToolTip}}" color="primary">info</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="answer_content">
+                <mat-accordion multi="false">
+                  <mat-expansion-panel *ngFor="let answer of sectors">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{answer.question.number}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{answer.question.question}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <span>{{answer.answer}}</span>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </mat-expansion-panel>
+
+            <!-- Fußabdruck Selbsteinschätzung -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Fußabdruck Selbsteinschätzung</p>
+                  <span class="fill-space"></span>
+                  <mat-icon matTooltip="{{footprintToolTip}}" color="primary">info</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="answer_content">
+                <mat-accordion multi="false">
+                  <mat-expansion-panel *ngFor="let answer of footprint">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{answer.question.number}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{answer.question.question}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <span>{{answer.answer}}</span>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </mat-expansion-panel>
+
+            <!-- Handabdruck Selbsteinschätzung -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Handabdruck Selbsteinschätzung</p>
+                  <span class="fill-space"></span>
+                  <mat-icon matTooltip="{{fingerprintToolTip}}" color="primary">info</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <mat-accordion multi="false" class="answer_content">
+                  <mat-expansion-panel *ngFor="let answer of fingerprint">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{answer.question.number}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{answer.question.question}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <span>{{answer.answer}}</span>
+                  </mat-expansion-panel>
+                </mat-accordion>
+            </mat-expansion-panel>
+
+            <!-- Geldabdruck Selbsteinschätzung -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Geldabdruck Selbsteinschätzung</p>
+                  <span class="fill-space"></span>
+                  <mat-icon matTooltip="{{moneyToolTip}}" color="primary">info</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="answer_content">
+                <mat-accordion multi="false">
+                  <mat-expansion-panel *ngFor="let answer of money">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{answer.question.number}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{answer.question.question}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <span>{{answer.answer}}</span>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Top 5 Questions -->
+    <div class="grid_item">
+      <mat-card class="card_box">
+        <mat-card-title>
+          Top 5 Fragen der Community
+        </mat-card-title>
+        <mat-card-content class="card_content_chart">
+          <canvas class = "chart"
+                  baseChart
+                  [data]="barChartData"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [type]="'bar'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

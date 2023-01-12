@@ -1,7 +1,7 @@
 header_toolbar {
   background-color: white;
   //min-height: 100px;
-  height: 10%;
+  height: 100px;
   position: sticky;
   width: 100%;
   display: flex;
@@ -9,7 +9,7 @@ header_toolbar {
 
 .body-container {
   display: flex;
-  height: 90%;
+  height: calc(100% - 100px); // minus header_toolbar
 }
 
 .navigation-container {

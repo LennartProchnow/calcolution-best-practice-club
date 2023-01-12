@@ -18,17 +18,20 @@ export class ClubMemberComponent implements OnInit {
   participants: User[];
 
   public pieChartOptions: ChartOptions<'pie'> = {
-      responsive: false,
-    };
-    public pieChartLabels = [ 'Chemie', 'Real Estate' , 'Luftfahrt', 'Finanzdienstleister', 'Privat' ];
-    public pieChartDatasets = [ {
-      data: [ 300, 500, 100, 240, 333 ]
-    } ];
-    public pieChartLegend = true;
-    public pieChartPlugins = [];
+    responsive: false,
+  };
+  public pieChartLabels = [ 'Chemie', 'Real Estate' , 'Luftfahrt', 'Finanzdienstleister', 'Privat' ];
+  public pieChartDatasets = [ {
+    data: [ 300, 500, 100, 240, 333 ]
+  } ];
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
 
   constructor() { }
 
+  /*
+  * initialize participants and moderator to display in view
+  */
   ngOnInit(): void {
     if(this.club) {
       this.participants = this.club.participants;

@@ -71,8 +71,8 @@
             <mat-card class="feed_item" *ngFor="let post of posts">
               <mat-card-header>
                 <mat-card-title>
-                  <mat-icon color="primary">account_circle</mat-icon>
-                  <p>{{post.creator.forename}} {{post.creator.surname}}</p>
+                  <mat-icon color="primary" class="user_icon">account_circle</mat-icon>
+                  <span>{{post.creator.forename}} {{post.creator.surname}}</span>
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>

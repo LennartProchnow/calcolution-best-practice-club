@@ -15,6 +15,10 @@ export class NavigationbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * checks if the user is already authenticated. If not the navigationbar should not be visible.
+  * @return true if the user is authenticated
+  */
   isAuthenticated(): boolean {
       return !!this.authenticationService.userValue;
     }

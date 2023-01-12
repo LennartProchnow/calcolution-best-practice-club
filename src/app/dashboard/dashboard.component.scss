@@ -1,5 +1,5 @@
 .dashboard_content {
-  height: 98%;
+  height: 100%;
   width: 100%;
 }
 
@@ -20,16 +20,12 @@
 .grid_item_news_feed {
   grid-column: 3;
   grid-row: 1 / span 2;
+  height: 100%;
 }
 
 .card_box {
   background: white;
-  height: 90%;
-}
-
-.news_feed_box {
-  background: white;
-  height: 95%;
+  height: calc(100% - 32px);
 }
 
 .grid_item_c02_progess {
@@ -40,6 +36,7 @@
 .co2_progress_box {
   display: block;
   background: white;
+  height: calc(100% - 20px);
 }
 
 .progressBar {
@@ -61,6 +58,13 @@
   height: 90%;
 }
 
+.card_content_news_item {
+  margin: auto;
+  overflow: auto;
+  width: 100%;
+  height: 90%;
+}
+
 .card_content_chart {
   width: 94%;
   height: 85%;
@@ -68,8 +72,11 @@
 
 
 .news_item {
-  background: rgb(237,237,230);
   margin-bottom: 5px;
+}
+
+.user_icon {
+  vertical-align: bottom;
 }
 
 .example-viewport {
@@ -108,4 +115,9 @@
       overflow: hidden;
       vertical-align: middle;
   }
+}
+
+.scrollable_div {
+  height: 100%;
+  overflow: auto;
 }
