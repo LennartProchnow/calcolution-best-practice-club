@@ -31,6 +31,7 @@
   grid-column: 1;
   grid-row: 2 / span 3;
   height: calc(100% - 10px);
+  overflow: hidden;
 }
 
 .user_post_content {

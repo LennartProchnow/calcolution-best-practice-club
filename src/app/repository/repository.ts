@@ -153,13 +153,6 @@ export class UserRepository {
 @Injectable({
   providedIn: 'root',
 })
-export class OrganisationRepository {
-
-}
-
-@Injectable({
-  providedIn: 'root',
-})
 export class ClubRepository {
 
   findClubsOfUser(user: User): Club[] {
