@@ -94,9 +94,9 @@ const PROFILES = {
 }
 
 const USERS = {
-   "christian.schwehm@calcolution.com": new User(0, "christian.schwehm@calcolution.com", "Geheim123",
+   "christian.schwehm@calcolution.com": new User(0, "christian.schwehm@calcolution.com", "Geheim",
                                         [ORGANISATIONS[0] , ORGANISATIONS[1]], "Christian", "Schwehm", [0 , 1], [PROFILES[0], PROFILES[1]]),
-   'max.mustermann@nordakademie.de': new User(1, 'max.mustermann@nordakademie.de', 'Geheim123',
+   'max.mustermann@nordakademie.de': new User(1, 'max.mustermann@nordakademie.de', 'Geheim',
                                         [ORGANISATIONS[2]], 'Max', 'Mustermann', [0 , 1], [PROFILES[2]]),
    'dennis.clausen@nordakademie.de': new User(2, 'dennis.clausen@nordakademie.de', 'Geheim123',
                                          [ORGANISATIONS[3]], 'Dennis', 'Clausen', [0], [PROFILES[3]]),
@@ -145,8 +145,12 @@ const CLUBS = {
 export class UserRepository {
 
   login(email: string, password: string): User {
-    let user: User = USERS[email];
-    return user;
+    let result: User;
+    let currentUser: User = USERS[email];
+    if(currentUser.password == password) {
+      result = currentUser;
+    }
+    return result;
   }
 }
 
